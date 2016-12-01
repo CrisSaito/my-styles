@@ -1,3 +1,11 @@
+/* ----------------------------
+	- Customized ADVISEU STYLES
+	- FONTS
+------------------------------- */
+/* ----------------------------
+	- Customized ADVISEU COLORS
+	- MIXINS for prefixed css
+------------------------------- */
 /*-------------------------------------*/
 /*-------------- COLORS ---------------*/
 /*-------------------------------------*/
@@ -10,11 +18,22 @@
 html {
   font-size: 10px; }
 
+body {
+  font-family: "Open Sans", "sans-serif"; }
+
 a {
   color: #333; }
 
 p {
   margin: 0; }
+
+/*-------------------------------------*/
+/*-------- BORDER-RADIUS RESET --------*/
+/*-------------------------------------*/
+.adv-panel-default,
+input.adv-form-control,
+.adv-btn-sm {
+  border-radius: 0; }
 
 /*-------------------------------------*/
 /*------------ TABS STYLE -------------*/
@@ -45,7 +64,6 @@ p {
 /*-------------- PAINEIS --------------*/
 /*-------------------------------------*/
 .adv-panel-default {
-  border-radius: 0;
   border-bottom-color: #CCC; }
 
 .adv-panel-heading {
@@ -54,6 +72,18 @@ p {
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
+.adv-invalid-txt {
+  color: #D92F35; }
+
+input.adv-form-control:focus {
+  border-color: #67B2E4;
+  box-shadow: 0 0 8px #C3E1F4;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+
+.has-error .adv-form-control {
+  border-color: #D92F35; }
+
 /*-------------------------------------*/
 /*-------------- BUTTONS --------------*/
 /*-------------------------------------*/
@@ -84,10 +114,22 @@ p {
   background-color: #5F5F5F;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-default:hover {
+  .adv-btn-default:hover, .adv-btn-default:focus {
     border-color: #5F5F5F;
     background-color: #FFF;
     color: #5F5F5F;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-primary {
+  color: #FFF;
+  background-color: #3498DB;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-primary:hover, .adv-btn-primary:focus {
+    border-color: #3498DB;
+    background-color: #FFF;
+    color: #3498DB;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
@@ -96,7 +138,7 @@ p {
   background-color: #2ECC71;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-success:hover {
+  .adv-btn-success:hover, .adv-btn-success:focus {
     border-color: #2ECC71;
     background-color: #FFF;
     color: #2ECC71;
@@ -108,7 +150,7 @@ p {
   background-color: #D92F35;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-danger:hover {
+  .adv-btn-danger:hover, .adv-btn-danger:focus {
     border-color: #D92F35;
     background-color: #FFF;
     color: #D92F35;
@@ -120,7 +162,7 @@ p {
   background-color: #F57E20;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-warning:hover {
+  .adv-btn-warning:hover, .adv-btn-warning:focus {
     border-color: #F57E20;
     background-color: #FFF;
     color: #F57E20;
@@ -129,74 +171,153 @@ p {
 
 .adv-btn-info {
   color: #FFF;
-  background-color: #D92F35;
+  background-color: #67B2E4;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-info:hover {
-    border-color: #D92F35;
+  .adv-btn-info:hover, .adv-btn-info:focus {
+    border-color: #67B2E4;
     background-color: #FFF;
-    color: #D92F35;
+    color: #67B2E4;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
 .adv-btn-default-invert {
-  color: #FFF;
+  color: #5F5F5F;
   background-color: #FFF;
   border-color: #5F5F5F;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-default-invert:hover {
+  .adv-btn-default-invert:hover, .adv-btn-default-invert:focus {
     background-color: #5F5F5F;
-    color: #5F5F5F;
+    color: #FFF;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-primary-invert {
+  color: #3498DB;
+  background-color: #FFF;
+  border-color: #3498DB;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-primary-invert:hover, .adv-btn-primary-invert:focus {
+    background-color: #3498DB;
+    color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
 .adv-btn-success-invert {
-  color: #FFF;
+  color: #2ECC71;
   background-color: #FFF;
   border-color: #2ECC71;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-success-invert:hover {
+  .adv-btn-success-invert:hover, .adv-btn-success-invert:focus {
     background-color: #2ECC71;
-    color: #2ECC71;
+    color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
 .adv-btn-danger-invert {
-  color: #FFF;
+  color: #D92F35;
   background-color: #FFF;
   border-color: #D92F35;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-danger-invert:hover {
+  .adv-btn-danger-invert:hover, .adv-btn-danger-invert:focus {
     background-color: #D92F35;
-    color: #D92F35;
+    color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
 .adv-btn-warning-invert {
-  color: #FFF;
+  color: #F57E20;
   background-color: #FFF;
   border-color: #F57E20;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-warning-invert:hover {
+  .adv-btn-warning-invert:hover, .adv-btn-warning-invert:focus {
     background-color: #F57E20;
-    color: #F57E20;
+    color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
 .adv-btn-info-invert {
-  color: #FFF;
+  color: #67B2E4;
   background-color: #FFF;
-  border-color: #D92F35;
+  border-color: #67B2E4;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-info-invert:hover {
-    background-color: #D92F35;
-    color: #D92F35;
+  .adv-btn-info-invert:hover, .adv-btn-info-invert:focus {
+    background-color: #67B2E4;
+    color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
+
+.adv-btn-info.adv-btn-sm.dropdown-toggle {
+  border-left-color: #3498DB; }
+
+.adv-btn-sm {
+  border-width: 2px; }
+
+/*-------------------------------------*/
+/*------------- ALERT BOX -------------*/
+/*-------------------------------------*/
+.adv-alert {
+  border-radius: 0; }
+
+.adv-alert-success {
+  color: #2ECC71;
+  background-color: #DEF7E9;
+  border-color: #2ECC71; }
+
+.adv-alert-danger {
+  color: #D92F35;
+  background-color: #F9DFE0;
+  border-color: #D92F35; }
+
+/*-------------------------------------*/
+/*---------- FONT (OPEN SANS) ---------*/
+/*-------------------------------------*/
+/* Generated by Font Squirrel (https://www.fontsquirrel.com) on December 1, 2016 */
+@font-face {
+  font-family: 'open_sansbold';
+  src: url("opensans-bold-webfont.woff2") format("woff2"), url("opensans-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansbold_italic';
+  src: url("opensans-bolditalic-webfont.woff2") format("woff2"), url("opensans-bolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansitalic';
+  src: url("opensans-italic-webfont.woff2") format("woff2"), url("opensans-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanslight';
+  src: url("opensans-light-webfont.woff2") format("woff2"), url("opensans-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanslight_italic';
+  src: url("opensans-lightitalic-webfont.woff2") format("woff2"), url("opensans-lightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sansregular';
+  src: url("opensans-regular-webfont.woff2") format("woff2"), url("opensans-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url("opensans-semibold-webfont.woff2") format("woff2"), url("opensans-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'open_sanssemibold_italic';
+  src: url("opensans-semibolditalic-webfont.woff2") format("woff2"), url("opensans-semibolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 
 /*# sourceMappingURL=adv-basic-style.css.map */

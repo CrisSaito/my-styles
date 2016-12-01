@@ -1,9 +1,9 @@
 // GUIA DE ESTILOS PARA O PORTAL DA ADVISEU //
 
 ** As classes são baseadas na versão v3.3.7 do BOOTSTRAP (bootstrap.css). 
-** É necessário ter uma versão do Bootsrap vinculado no documento HTML.
+** É necessário ter uma versão do Bootsrap vinculado ao documento HTML.
 
-:: Basicamente, aos nomes das classes do Bootstrap é acrescentado o prefixo "adv-". Em alguns casos, serão necessários os nomes originais das classes do Bootstrap. Exemplo: class="nav adv-nav".
+:: Basicamente, é acrescentado o prefixo "adv-" aos nomes das classes do Bootstrap. Em alguns casos, serão necessários os nomes originais das classes do Bootstrap. Exemplo: class="nav adv-nav".
 
 
 /**************/

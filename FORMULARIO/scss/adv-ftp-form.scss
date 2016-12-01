@@ -25,9 +25,33 @@
 .adv-panel-heading p {
 	display: inline-block;
 	color: $adv-blue;
+	margin-right: 1rem;
+}
+
+.adv-btn {
+	min-width: 7.2rem;
+	margin-right: 1rem;
 }
 
 .adv-btn .glyphicon {
-	padding-right: 1rem; 
+	padding-right: 0.8rem; 
 }
 // SERVICE STATUS
+
+
+/*-------------------------------------*/
+/*------------ NEW FTP USER -----------*/
+/*-------------------------------------*/
+// BUTTON
+.adv-panel-default + .adv-btn {
+	padding: 1.3rem 2rem;
+}
+
+
+
+/*-------------------------------------*/
+/*---------- USER LIST TABLE ----------*/
+/*-------------------------------------*/
+table {
+	margin-top: 2rem;
+}

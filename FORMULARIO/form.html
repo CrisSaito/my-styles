@@ -52,57 +52,162 @@
 								</button>
 					  		</div>
 					  		<div class="panel-body">
-					  			<div class="alert alert-success" ng-show="showSuccessMessage">
+					  			<div class="alert adv-alert adv-alert-success" ng-show="showSuccessMessage">
 					  				<a href="#" ng-click="closeMessage" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 					  				<strong>Success!</strong> Configuration saved successfully
 								</div>
 
-								<div class="alert alert-danger" ng-show="showErrorMessage">
+								<div class="alert adv-alert adv-alert-danger" ng-show="showErrorMessage">
 				  				<a href="#" ng-click="closeErrorMessage" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				  				<strong>Error!</strong> Error trying to save the configuration
 								</div>
 
 								<div id="ftp-form">
 									<form class="form-horizontal" name="configurationForm" novalidate>
-										<div class="form-group">
+										<div class="row form-group">
 											<label class="col-sm-3 control-label">Actions:</label>
 											<div class="col-sm-9">
-												<button type="button" class="btn btn-primary" ng-show="!ftpServerRunning" ng-click="startServer()">Start</button>
-												<button type="button" class="btn btn-danger" ng-show="ftpServerRunning" ng-click="stopServer()">Stop</button>
-												<button type="button" class="btn btn-primary" ng-show="ftpServerRunning" ng-click="restartServer()">Restart</button>
+												<button type="button" class="adv-btn adv-btn-success-invert" ng-show="!ftpServerRunning" ng-click="startServer()"><span class="glyphicon glyphicon-ok"></span>Start</button>
+												<button type="button" class="adv-btn adv-btn-danger-invert" ng-show="ftpServerRunning" ng-click="stopServer()"><span class="glyphicon glyphicon-remove"></span>Stop</button>
+												<button type="button" class="adv-btn adv-btn-warning-invert" ng-show="ftpServerRunning" ng-click="restartServer()"><span class="glyphicon glyphicon-repeat"></span>Restart</button>
 								  			</div>
 								  		</div>
 
-								  		<div class="form-group" ng-class="{ 'has-error' : configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine }">
+								  		<div class="row form-group" ng-class="{ 'has-error' : configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine }">
 												<label class="col-sm-3 control-label">Port number:</label>
 												<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode"><!-- {{configuration.portNumber}} --></label>
 												<div class="col-sm-9" ng-show="configEditMode">
-													<input class="form-control" name="portNumber" id="focusedInput" type="text" placeholder="Enter port number" required value="21" ng-model="configuration.portNumber" />
-													<span style="color:red" ng-show="configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine">The port is required.</span>
+													<input class="form-control adv-form-control" name="portNumber" id="focusedInput" type="text" placeholder="Enter port number" required value="21" ng-model="configuration.portNumber" />
+													<span class="adv-invalid-txt" ng-show="configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine">The port is required.</span>
 												</div>
 											</div>
 
-								  		<div class="form-group" ng-class="{ 'has-error' : configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine }">
+								  		<div class="row form-group" ng-class="{ 'has-error' : configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine }">
 												<label class="col-sm-3 control-label">Physical FTP root path:</label>
 												<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode"><!-- {{configuration.physicalRootPath}} --></label>
 												<div class="col-sm-9" ng-show="configEditMode">
-													<input class="form-control" name="physicalRootPath" id="focusedInput" type="text" placeholder="Enter physical path" required ng-model="configuration.physicalRootPath" />
-													<span style="color:red" ng-show="configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine">The physical path is required.</span>
+													<input class="form-control adv-form-control" name="physicalRootPath" id="focusedInput" type="text" placeholder="Enter physical path" required ng-model="configuration.physicalRootPath" />
+													<span class="adv-invalid-txt" ng-show="configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine">The physical path is required.</span>
 											</div>
 										</div>
 
-										<div class="form-group">
+										<div class="row form-group">
 											<div class="col-sm-3">&nbsp;</div>
 											<div class="col-sm-9">
-												<button type="button" class="btn btn-default" ng-click="editConfiguration(true)" ng-show="!configEditMode">Edit</button>
-												<button type="button" class="btn btn-primary" ng-click="saveConfiguration()" ng-show="configEditMode">Save</button>
-												<button type="button" class="btn btn-default" ng-click="editConfiguration(false)" ng-show="configEditMode">Cancel</button>
+												<button type="button" class="adv-btn adv-btn-default-invert" ng-click="editConfiguration(true)" ng-show="!configEditMode">Edit</button>
+												<button type="button" class="adv-btn adv-btn-primary" ng-click="saveConfiguration()" ng-show="configEditMode">Save</button>
+												<button type="button" class="adv-btn adv-btn-default-invert" ng-click="editConfiguration(false)" ng-show="configEditMode">Cancel</button>
 											</div>
 										</div>
 									</form>
 								</div>
 							</div>
 						</div>
+
+						<button type="button" class="adv-btn adv-btn-primary-invert" ng-click="newFTPUser()" ng-disabled="showUserForm">
+						New FTP User</button>
+
+						<!-- Colocar a última parte do formulário aqui -->
+
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>User</th>
+									<th>Email</th>
+									<th>Root Path</th>
+									<th>Status</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>John Doe</td>
+									<td>john@example.com</td>
+									<td>john@example.com</td>
+									<td>/home/john/</td>
+									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
+									<td>
+										<div class="btn-group">
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><b>Actions</b></button>
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+										    <span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu" role="menu">
+										    <li><a href="#">Enable</a></li>
+										    <li><a href="#">Disable</a></li>
+										    <li><a href="#">Edit</a></li>
+										    <li><a href="#">Remove</a></li>
+										  </ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Mary Moe</td>
+									<td>mary@example.com</td>
+									<td>mary@example.com</td>
+									<td>/home/mary/</td>
+									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
+									<td>
+										<div class="btn-group">
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><b>Actions</b></button>
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+										    <span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu" role="menu">
+										    <li><a href="#">Enable</a></li>
+										    <li><a href="#">Disable</a></li>
+										    <li><a href="#">Edit</a></li>
+										    <li><a href="#">Remove</a></li>
+										  </ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>July Doodley</td>
+									<td>july@example.com</td>
+									<td>july@example.com</td>
+									<td>/home/july/</td>
+									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Disabled</button></td>
+									<td>
+										<div class="btn-group">
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><b>Actions</b></button>
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+										    <span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu" role="menu">
+										    <li><a href="#">Enable</a></li>
+										    <li><a href="#">Disable</a></li>
+										    <li><a href="#">Edit</a></li>
+										    <li><a href="#">Remove</a></li>
+										  </ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>july@example.com</td>
+									<td>july@example.com</td>
+									<td>/home/july/</td>
+									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
+									<td>
+										<div class="btn-group">
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><b>Actions</b></button>
+										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+										    <span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu" role="menu">
+										    <li><a href="#">Enable</a></li>
+										    <li><a href="#">Disable</a></li>
+										    <li><a href="#">Edit</a></li>
+										    <li><a href="#">Remove</a></li>
+										  </ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
 					</div> <!-- Fim tab configuration -->
 				</div> <!-- Fim tab-content -->
 

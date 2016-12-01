@@ -1,3 +1,9 @@
+/* ----------------------------
+	- Customized ADVISEU COLORS
+	- MIXINS for prefixed css
+------------------------------- */
+
+
 @charset "UTF-8";
 
 /*-------------------------------------*/
@@ -8,22 +14,42 @@ $black: #333;
 $gray-1: #CCC;
 
 // BASIC
-$adv-gray: #5F5F5F;
 $adv-orange: #F57E20;
 $adv-blue: #3498DB;
 $adv-green: #2ECC71;
-$adv-purple: #8E44AD;
+$adv-gray: #5F5F5F;
 $adv-red: #D92F35;
+$adv-purple: #8E44AD;
 
-// ORANGE
-$adv-orange40: #FBCEAA;
-$adv-orange60: #F8B076;
+// ORANGE TINTS
+$adv-orange15: #FFECDD;
+$adv-orange30: #FCDABE;
+$adv-orange50: #F9FF8F;
+$adv-orange75: #F7A05B;
 
-// BLUE
+// BLUE TINTS
+$adv-blue15: #DFEFFA;
+$adv-blue30: #C3E1F4;
+$adv-blue50: #97CAED;
+$adv-blue75: #67B2E4;
 
-// GREEN
+// GREEN TINTS
+$adv-green15: #DEF7E9;
+$adv-green30: #C3F0D7;
+$adv-green50: #96E5B8;
+$adv-green75: #63D995;
 
-// GRAY
+// GRAY TINTS
+$adv-gray10: #EFEFEF;
+$adv-gray25: #D7D7D7;
+$adv-gray45: #B7B7B7;
+$adv-gray75: #878787;
+
+// RED TINTS
+$adv-red15: #F9DFE0;
+$adv-red30: #F3C1C3;
+$adv-red50: #EC979B;
+$adv-red75: #E36469;
 
 
 /*-------------------------------------*/

@@ -1,3 +1,7 @@
+/* ----------------------------
+	- Customized ADVISEU COLORS
+	- MIXINS for prefixed css
+------------------------------- */
 /*-------------------------------------*/
 /*-------------- COLORS ---------------*/
 /*-------------------------------------*/
@@ -21,9 +25,26 @@
 /*-------------------------------------*/
 .adv-panel-heading p {
   display: inline-block;
-  color: #3498DB; }
+  color: #3498DB;
+  margin-right: 1rem; }
+
+.adv-btn {
+  min-width: 7.2rem;
+  margin-right: 1rem; }
 
 .adv-btn .glyphicon {
-  padding-right: 1rem; }
+  padding-right: 0.8rem; }
+
+/*-------------------------------------*/
+/*------------ NEW FTP USER -----------*/
+/*-------------------------------------*/
+.adv-panel-default + .adv-btn {
+  padding: 1.3rem 2rem; }
+
+/*-------------------------------------*/
+/*---------- USER LIST TABLE ----------*/
+/*-------------------------------------*/
+table {
+  margin-top: 2rem; }
 
 /*# sourceMappingURL=adv-ftp-form.css.map */
