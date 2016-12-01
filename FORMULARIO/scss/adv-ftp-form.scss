@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "adv-variables-mixins.scss";
 
 
 /*-------------------------------------*/
@@ -20,4 +21,13 @@
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
+// PANEL-HEADING
+.adv-panel-heading p {
+	display: inline-block;
+	color: $adv-blue;
+}
+
+.adv-btn .glyphicon {
+	padding-right: 1rem; 
+}
 // SERVICE STATUS

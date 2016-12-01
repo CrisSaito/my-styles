@@ -10,6 +10,9 @@ html {
 a {
 	color: $black;
 }
+p {
+	margin: 0;
+}
 
 
 /*-------------------------------------*/
@@ -22,9 +25,13 @@ a {
 	display: inline-block;
 
 	&>a {
+		@include transition(color 0.2s);
+
 		&:focus,
 		&:hover {
-			color: $adv-blue; 
+			color: $adv-blue;
+			background-color: $white;
+			@include transition(color 0.2s);
 		}
 	}
 }
@@ -48,6 +55,19 @@ a {
 
 
 /*-------------------------------------*/
+/*-------------- PAINEIS --------------*/
+/*-------------------------------------*/
+.adv-panel-default {
+	border-radius: 0;
+	border-bottom-color: $gray-1;
+}
+
+.adv-panel-heading {
+	border-bottom-color: $gray-1;
+}
+
+
+/*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
 
@@ -56,3 +76,80 @@ a {
 /*-------------------------------------*/
 /*-------------- BUTTONS --------------*/
 /*-------------------------------------*/
+.adv-btn {
+	display: inline-block;
+	padding: 0.6rem 1.2rem;
+	margin-bottom: 0;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+			touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+		 -moz-user-select: none;
+			-ms-user-select: none;
+					user-select: none;
+	background-image: none;
+	& {
+		background-color: $white;
+		border: 2px solid transparent;
+		@include transition(all  0.2s);
+	}
+}
+	@mixin btn-colors($color) {
+		color: $white;
+		background-color: $color;
+		@include transition(all 0.2s);
+
+		&:hover {
+			border-color: $color;
+			background-color: $white;
+			color: $color;
+			@include transition(all 0.2s);
+		}
+	}
+	.adv-btn-default {
+		@include btn-colors($adv-gray);
+	}
+	.adv-btn-success {
+		@include btn-colors($adv-green);
+	}
+	.adv-btn-danger {
+		@include btn-colors($adv-red);
+	}
+	.adv-btn-warning {
+		@include btn-colors($adv-orange);
+	}
+	.adv-btn-info {
+		@include btn-colors($adv-red);
+	}
+
+	@mixin btn-colors-invert($color) {
+		color: $white;
+		background-color: $white;
+		border-color: $color;
+		@include transition(all 0.2s);
+
+		&:hover {
+			background-color: $color;
+			color: $color;
+			@include transition(all 0.2s);
+		}
+	}
+	.adv-btn-default-invert {
+		@include btn-colors-invert($adv-gray);
+	}
+	.adv-btn-success-invert {
+		@include btn-colors-invert($adv-green);
+	}
+	.adv-btn-danger-invert {
+		@include btn-colors-invert($adv-red);
+	}
+	.adv-btn-warning-invert {
+		@include btn-colors-invert($adv-orange);
+	}
+	.adv-btn-info-invert {
+		@include btn-colors-invert($adv-red);
+	}

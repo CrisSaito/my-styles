@@ -2,6 +2,9 @@
 /*-------------- COLORS ---------------*/
 /*-------------------------------------*/
 /*-------------------------------------*/
+/*-------------- MIXINS ---------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
 /*------------ ROOT STYLE -------------*/
 /*-------------------------------------*/
 html {
@@ -9,6 +12,9 @@ html {
 
 a {
   color: #333; }
+
+p {
+  margin: 0; }
 
 /*-------------------------------------*/
 /*------------ TABS STYLE -------------*/
@@ -18,8 +24,14 @@ a {
 
 .adv-nav > li {
   display: inline-block; }
-  .adv-nav > li > a:focus, .adv-nav > li > a:hover {
-    color: #3498DB; }
+  .adv-nav > li > a {
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s; }
+    .adv-nav > li > a:focus, .adv-nav > li > a:hover {
+      color: #3498DB;
+      background-color: #FFF;
+      -webkit-transition: color 0.2s;
+      transition: color 0.2s; }
 
 .adv-nav-tabs {
   border-bottom: 2px solid #3498DB; }
@@ -30,7 +42,161 @@ a {
     background-color: #3498DB; }
 
 /*-------------------------------------*/
+/*-------------- PAINEIS --------------*/
+/*-------------------------------------*/
+.adv-panel-default {
+  border-radius: 0;
+  border-bottom-color: #CCC; }
+
+.adv-panel-heading {
+  border-bottom-color: #CCC; }
+
+/*-------------------------------------*/
+/*--------------- FORMS ---------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
 /*-------------- BUTTONS --------------*/
 /*-------------------------------------*/
+.adv-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none; }
+  .adv-btn {
+    background-color: #FFF;
+    border: 2px solid transparent;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-default {
+  color: #FFF;
+  background-color: #5F5F5F;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-default:hover {
+    border-color: #5F5F5F;
+    background-color: #FFF;
+    color: #5F5F5F;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-success {
+  color: #FFF;
+  background-color: #2ECC71;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-success:hover {
+    border-color: #2ECC71;
+    background-color: #FFF;
+    color: #2ECC71;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-danger {
+  color: #FFF;
+  background-color: #D92F35;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-danger:hover {
+    border-color: #D92F35;
+    background-color: #FFF;
+    color: #D92F35;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-warning {
+  color: #FFF;
+  background-color: #F57E20;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-warning:hover {
+    border-color: #F57E20;
+    background-color: #FFF;
+    color: #F57E20;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-info {
+  color: #FFF;
+  background-color: #D92F35;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-info:hover {
+    border-color: #D92F35;
+    background-color: #FFF;
+    color: #D92F35;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-default-invert {
+  color: #FFF;
+  background-color: #FFF;
+  border-color: #5F5F5F;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-default-invert:hover {
+    background-color: #5F5F5F;
+    color: #5F5F5F;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-success-invert {
+  color: #FFF;
+  background-color: #FFF;
+  border-color: #2ECC71;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-success-invert:hover {
+    background-color: #2ECC71;
+    color: #2ECC71;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-danger-invert {
+  color: #FFF;
+  background-color: #FFF;
+  border-color: #D92F35;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-danger-invert:hover {
+    background-color: #D92F35;
+    color: #D92F35;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-warning-invert {
+  color: #FFF;
+  background-color: #FFF;
+  border-color: #F57E20;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-warning-invert:hover {
+    background-color: #F57E20;
+    color: #F57E20;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
+
+.adv-btn-info-invert {
+  color: #FFF;
+  background-color: #FFF;
+  border-color: #D92F35;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+  .adv-btn-info-invert:hover {
+    background-color: #D92F35;
+    color: #D92F35;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s; }
 
 /*# sourceMappingURL=adv-basic-style.css.map */

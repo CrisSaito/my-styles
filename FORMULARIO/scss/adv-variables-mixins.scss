@@ -5,6 +5,7 @@
 /*-------------------------------------*/
 $white: #FFF;
 $black: #333;
+$gray-1: #CCC;
 
 // BASIC
 $adv-gray: #5F5F5F;
@@ -12,7 +13,7 @@ $adv-orange: #F57E20;
 $adv-blue: #3498DB;
 $adv-green: #2ECC71;
 $adv-purple: #8E44AD;
-$adv-red: #D9EF35;
+$adv-red: #D92F35;
 
 // ORANGE
 $adv-orange40: #FBCEAA;
@@ -23,3 +24,12 @@ $adv-orange60: #F8B076;
 // GREEN
 
 // GRAY
+
+
+/*-------------------------------------*/
+/*-------------- MIXINS ---------------*/
+/*-------------------------------------*/
+@mixin transition($value...) {
+	-webkit-transition: $value;
+					transition: $value;
+}
