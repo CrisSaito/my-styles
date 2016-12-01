@@ -1,0 +1,13 @@
+/*-------------------------------------*/
+/*------------ TABS STYLE -------------*/
+/*-------------------------------------*/
+.adv-logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%; }
+  .adv-logo img {
+    height: 100%;
+    padding: 0.5rem 1rem 0.5rem 0; }
+
+/*# sourceMappingURL=adv-ftp-form.css.map */

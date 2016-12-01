@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	</head>
+
+	<body>
+
+		<!-- Fixed navbar -->
+		<div class="container">
+			
+			<div id="page-header">
+				<div class="form-group">
+					<div style="width:83%;float:left">
+						<ul class="nav nav-pills">
+							<li  class="active"><a data-toggle="pill" href="#configuration">Smart FTP Server Configuration</a></li>
+							<li><a data-toggle="pill" href="#dashboard">Dashboard</a></li>
+						</ul>
+					</div>
+					<div>
+						<img alt="Progress Software" src="assets/img/progress-logo_black.png" height="50px">
+					</div>
+				</div>
+			</div>
+			
+			<div class="tab-content">
+			
+				<div id="dashboard" class="tab-pane fade">
+				
+					<!-- Dashboard Panel - Smart FTP Server -->
+				
+				</div>
+				
+	    	<div id="configuration" class="tab-pane fade in active">
+					<div class="panel panel-default">
+				  		<div class="panel-heading">
+							<b>Service Status:</b> 
+							<button type="button" class="btn btn-success" ng-show="ftpServerRunning">Server is now Running</button> 
+							<button type="button" class="btn btn-danger" ng-show="!ftpServerRunning">Server is now Stopped</button>
+				  		</div>
+				  		<div class="panel-body">
+				  			<div class="alert alert-success" ng-show="showSuccessMessage">
+				  				<a href="#" ng-click="closeMessage" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				  				<strong>Success!</strong> Configuration saved successfully
+							</div>
+							<div class="alert alert-danger" ng-show="showErrorMessage">
+				  				<a href="#" ng-click="closeErrorMessage" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				  				<strong>Error!</strong> Error trying to save the configuration
+							</div>
+							<div id="ftp-form">
+								<form class="form-horizontal" name="configurationForm" novalidate>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Actions:</label>
+										<div class="col-sm-9">
+											<button type="button" class="btn btn-primary" ng-show="!ftpServerRunning" ng-click="startServer()">Start</button>
+											<button type="button" class="btn btn-danger" ng-show="ftpServerRunning" ng-click="stopServer()">Stop</button>
+											<button type="button" class="btn btn-primary" ng-show="ftpServerRunning" ng-click="restartServer()">Restart</button>
+							  			</div>
+							  		</div>
+							  		<div class="form-group" ng-class="{ 'has-error' : configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine }">
+										<label class="col-sm-3 control-label">Port number:</label>
+										<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode">{{configuration.portNumber}}</label>
+										<div class="col-sm-9" ng-show="configEditMode">
+											<input class="form-control" name="portNumber" id="focusedInput" type="text" placeholder="Enter port number" required value="21" ng-model="configuration.portNumber" />
+											<span style="color:red" ng-show="configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine">The port is required.</span>
+										</div>
+									</div>
+							  		<div class="form-group" ng-class="{ 'has-error' : configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine }">
+										<label class="col-sm-3 control-label">Physical FTP root path:</label>
+										<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode">{{configuration.physicalRootPath}}</label>
+										<div class="col-sm-9" ng-show="configEditMode">
+											<input class="form-control" name="physicalRootPath" id="focusedInput" type="text" placeholder="Enter physical path" required ng-model="configuration.physicalRootPath" />
+											<span style="color:red" ng-show="configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine">The physical path is required.</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-3">&nbsp;</div>
+										<div class="col-sm-9">
+											<button type="button" class="btn btn-default" ng-click="editConfiguration(true)" ng-show="!configEditMode">Edit</button>
+											<button type="button" class="btn btn-primary" ng-click="saveConfiguration()" ng-show="configEditMode">Save</button>
+											<button type="button" class="btn btn-default" ng-click="editConfiguration(false)" ng-show="configEditMode">Cancel</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<button type="button" class="btn btn-primary" ng-click="newFTPUser()" ng-disabled="showUserForm">New FTP User</button>
+					
+					<br/><br/>
+					
+					<div id="new-user-form" sng-controller="userController" ng-show="showUserForm">
+						<div class="panel panel-default">
+				  			<div class="panel-heading">
+								<span style="font-size:18px"><b>Create new FTP user</b></span>
+							</div>
+							<div class="panel-body">
+								<form class="form-horizontal" name="userForm" novalidate>
+									<!-- <div class="alert alert-warning fade in">
+					    				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					    				<strong>Warning!</strong> This alert box could indicate a warning that might need attention. {{user}}
+					  				</div> -->
+									<div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+										<label class="col-sm-2 control-label">Name:</label>
+										<div class="col-sm-10">
+											<input name="name" class="form-control" id="focusedInput" type="text" placeholder="Enter full user name." required ng-model="user.name" />
+											<span style="color:red" ng-show="userForm.name.$invalid && !userForm.name.$pristine">The name is required.</span>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+										<label class="col-sm-2 control-label">User name:</label>
+										<div class="col-sm-10">
+											<input name="username" class="form-control" id="focusedInput" type="text" placeholder="Enter user name" required ng-model="user.username" />
+											<span style="color:red" ng-show="userForm.username.$invalid && !userForm.username.$pristine">The name is required.</span>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+										<label class="col-sm-2 control-label">E-mail:</label>
+										<div class="col-sm-10">
+											<input name="email" class="form-control" id="focusedInput" type="email" placeholder="Enter e-mail, for example: name@example.com" required ng-model="user.email" />
+											<span style="color:red" ng-show="userForm.email.$invalid && !userForm.email.$pristine">The e-mail is required.</span>
+										</div>
+									</div>
+									<div class="form-group has-feedback" ng-class="{'has-error' : user.emailConfirmation != user.email , 'has-success' : user.emailConfirmation == user.email }">
+										<label class="col-sm-2 control-label" for="inputSuccess">E-mail confirmation:</label>
+										<div class="col-sm-10">
+										<input type="email" name="emailConfirmation" class="form-control" id="inputSuccess" required ng-model="user.emailConfirmation" />
+											<span class="glyphicon form-control-feedback" 
+												ng-class="{'glyphicon-remove' : user.emailConfirmation != user.email , 'glyphicon-ok' : user.emailConfirmation == user.email }" ></span>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : userForm.homePath.$invalid && !userForm.homePath.$pristine }">
+										<label class="col-sm-2 control-label">Home path:</label>
+										<div class="col-sm-10">
+											<input name="homePath" class="form-control" id="focusedInput" type="text" placeholder="Enter root path" required ng-model="user.homePath" />
+											<span style="color:red" ng-show="userForm.homePath.$invalid && !userForm.homePath.$pristine">The home path is required.</span>
+										</div>
+									</div>
+									<div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+										<label class="col-sm-2 control-label">Password:</label>
+										<div class="col-sm-10">
+											<input name="password" class="form-control" id="focusedInput" type="password" required ng-model="user.password" />
+											<span style="color:red" ng-show="userForm.password.$invalid && !userForm.password.$pristine">The password is required.</span>
+										</div>
+									</div>
+									<div class="form-group has-feedback" ng-class="{'has-error' : user.passwordConfirmation != user.password , 'has-success' : user.passwordConfirmation == user.password }">
+										<label class="col-sm-2 control-label" for="inputSuccess">Pwd confirmation:</label>
+										<div class="col-sm-10">
+											<input name="passwordConfirmation" type="password" class="form-control" id="inputSuccess" required ng-model="user.passwordConfirmation" />
+											<span class="glyphicon form-control-feedback" 
+												ng-class="{'glyphicon-remove' : user.passwordConfirmation != user.password , 'glyphicon-ok' : user.passwordConfirmation == user.password }" ></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputSuccess">Access level:</label>
+										<div class="col-sm-10">
+				  							<label class="radio-inline"><input type="radio" name="access" checked="checked">Read</label>
+											<label class="radio-inline"><input type="radio" name="access">Read / Write</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-2">
+											&nbsp;
+										</div>
+										<div class="col-sm-10">
+											<button type="button" class="btn btn-primary">Save</button>
+					  						<button type="button" class="btn btn-default" ng-click="cancelNewFTPUser()">Cancel</button>
+											<button type="button" class="btn btn-default">Reset</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>User</th>
+								<th>Email</th>
+								<th>Root Path</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>John Doe</td>
+								<td>john@example.com</td>
+								<td>john@example.com</td>
+								<td>/home/john/</td>
+								<td><button type="button" class="btn btn-success btn-sm">Enabled</button></td>
+								<td>
+									<div class="btn-group">
+									  <button type="button" class="btn btn-info btn-sm"><b>Actions</b></button>
+									  <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown">
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" role="menu">
+									    <li><a href="#">Enable</a></li>
+									    <li><a href="#">Disable</a></li>
+									    <li><a href="#">Edit</a></li>
+									    <li><a href="#">Remove</a></li>
+									  </ul>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Mary Moe</td>
+								<td>mary@example.com</td>
+								<td>mary@example.com</td>
+								<td>/home/mary/</td>
+								<td><button type="button" class="btn btn-success btn-sm">Enabled</button></td>
+								<td>
+									<div class="btn-group">
+									  <button type="button" class="btn btn-info btn-sm"><b>Actions</b></button>
+									  <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown">
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" role="menu">
+									    <li><a href="#">Enable</a></li>
+									    <li><a href="#">Disable</a></li>
+									    <li><a href="#">Edit</a></li>
+									    <li><a href="#">Remove</a></li>
+									  </ul>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>July Doodley</td>
+								<td>july@example.com</td>
+								<td>july@example.com</td>
+								<td>/home/july/</td>
+								<td><button type="button" class="btn btn-danger btn-sm">Disabled</button></td>
+								<td>
+									<div class="btn-group">
+									  <button type="button" class="btn btn-info btn-sm"><b>Actions</b></button>
+									  <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown">
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" role="menu">
+									    <li><a href="#">Enable</a></li>
+									    <li><a href="#">Disable</a></li>
+									    <li><a href="#">Edit</a></li>
+									    <li><a href="#">Remove</a></li>
+									  </ul>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>july@example.com</td>
+								<td>july@example.com</td>
+								<td>/home/july/</td>
+								<td><button type="button" class="btn btn-success btn-sm">Enabled</button></td>
+								<td>
+									<div class="btn-group">
+									  <button type="button" class="btn btn-info btn-sm"><b>Actions</b></button>
+									  <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown">
+									    <span class="caret"></span>
+									  </button>
+									  <ul class="dropdown-menu" role="menu">
+									    <li><a href="#">Enable</a></li>
+									    <li><a href="#">Disable</a></li>
+									    <li><a href="#">Edit</a></li>
+									    <li><a href="#">Remove</a></li>
+									  </ul>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+</html>

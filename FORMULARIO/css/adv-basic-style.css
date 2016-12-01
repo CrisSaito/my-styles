@@ -1,0 +1,36 @@
+/*-------------------------------------*/
+/*-------------- COLORS ---------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*------------ ROOT STYLE -------------*/
+/*-------------------------------------*/
+html {
+  font-size: 10px; }
+
+a {
+  color: #333; }
+
+/*-------------------------------------*/
+/*------------ TABS STYLE -------------*/
+/*-------------------------------------*/
+.form-group {
+  position: relative; }
+
+.adv-nav > li {
+  display: inline-block; }
+  .adv-nav > li > a:focus, .adv-nav > li > a:hover {
+    color: #3498DB; }
+
+.adv-nav-tabs {
+  border-bottom: 2px solid #3498DB; }
+  .adv-nav-tabs > li {
+    float: left; }
+  .adv-nav-tabs > li.active > a, .adv-nav-tabs > li.active > a:focus {
+    color: #FFF;
+    background-color: #3498DB; }
+
+/*-------------------------------------*/
+/*-------------- BUTTONS --------------*/
+/*-------------------------------------*/
+
+/*# sourceMappingURL=adv-basic-style.css.map */

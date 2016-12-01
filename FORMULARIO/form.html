@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/adv-basic-style.css">
+		<link rel="stylesheet" href="css/adv-ftp-form.css">
+	</head>
+
+	<body>
+		<header>
+			
+		</header>
+
+		<!-- INSERIR CONTEÚDO AQUI -->
+		<main>
+			<div class="container">
+			
+			<!-- CONTEÚDO DO FORMULÁRIO -->
+				<div id="page-header">
+					<div class="form-group">
+						<div>
+							<ul class="nav adv-nav adv-nav-tabs">
+								<li class="active"><a data-toggle="pill" href="#configuration">Smart FTP Server Configuration</a></li>
+								<li><a data-toggle="pill" href="#dashboard">Dashboard</a></li>
+							</ul>
+						</div>
+						<div class="adv-logo">
+							<img alt="AdviseU" src="img/logo_adviseu.svg" height="50px">
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-content">
+					
+					<div id="dashboard" class="tab-pane fade">
+					
+						<!-- Dashboard Panel - Smart FTP Server -->
+					
+					</div> <!-- Fim dashboard -->
+
+					<div id="configuration" class="tab-pane fade in active">
+						<div class="panel panel-default">
+
+				  		<div class="panel-heading">
+								<b>Service Status:</b> 
+								<button type="button" class="btn btn-success" ng-show="ftpServerRunning">Server is now Running</button> 
+								<button type="button" class="btn btn-danger" ng-show="!ftpServerRunning">Server is now Stopped</button>
+					  		</div>
+					  		<div class="panel-body">
+					  			<div class="alert alert-success" ng-show="showSuccessMessage">
+					  				<a href="#" ng-click="closeMessage" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					  				<strong>Success!</strong> Configuration saved successfully
+								</div>
+
+								<div class="alert alert-danger" ng-show="showErrorMessage">
+				  				<a href="#" ng-click="closeErrorMessage" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				  				<strong>Error!</strong> Error trying to save the configuration
+								</div>
+
+								<div id="ftp-form">
+									<form class="form-horizontal" name="configurationForm" novalidate>
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Actions:</label>
+											<div class="col-sm-9">
+												<button type="button" class="btn btn-primary" ng-show="!ftpServerRunning" ng-click="startServer()">Start</button>
+												<button type="button" class="btn btn-danger" ng-show="ftpServerRunning" ng-click="stopServer()">Stop</button>
+												<button type="button" class="btn btn-primary" ng-show="ftpServerRunning" ng-click="restartServer()">Restart</button>
+								  			</div>
+								  		</div>
+
+								  		<div class="form-group" ng-class="{ 'has-error' : configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine }">
+												<label class="col-sm-3 control-label">Port number:</label>
+												<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode"><!-- {{configuration.portNumber}} --></label>
+												<div class="col-sm-9" ng-show="configEditMode">
+													<input class="form-control" name="portNumber" id="focusedInput" type="text" placeholder="Enter port number" required value="21" ng-model="configuration.portNumber" />
+													<span style="color:red" ng-show="configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine">The port is required.</span>
+												</div>
+											</div>
+
+								  		<div class="form-group" ng-class="{ 'has-error' : configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine }">
+												<label class="col-sm-3 control-label">Physical FTP root path:</label>
+												<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode"><!-- {{configuration.physicalRootPath}} --></label>
+												<div class="col-sm-9" ng-show="configEditMode">
+													<input class="form-control" name="physicalRootPath" id="focusedInput" type="text" placeholder="Enter physical path" required ng-model="configuration.physicalRootPath" />
+													<span style="color:red" ng-show="configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine">The physical path is required.</span>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<div class="col-sm-3">&nbsp;</div>
+											<div class="col-sm-9">
+												<button type="button" class="btn btn-default" ng-click="editConfiguration(true)" ng-show="!configEditMode">Edit</button>
+												<button type="button" class="btn btn-primary" ng-click="saveConfiguration()" ng-show="configEditMode">Save</button>
+												<button type="button" class="btn btn-default" ng-click="editConfiguration(false)" ng-show="configEditMode">Cancel</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fim tab configuration -->
+				</div> <!-- Fim tab-content -->
+
+			</div>
+		</main>
+		
+	</body>
+</html>
