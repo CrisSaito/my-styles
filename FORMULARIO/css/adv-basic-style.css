@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ----------------------------
 	- Customized ADVISEU COLORS
 	- MIXINS for prefixed css
@@ -26,12 +27,6 @@ a {
 
 p {
   margin: 0; }
-
-/*-------------------------------------*/
-/*------------ TEXT STYLES ------------*/
-/*-------------------------------------*/
-.adv-error-txt {
-  color: #D92F35; }
 
 /*-------------------------------------*/
 /*-------- BORDER-RADIUS RESET --------*/
@@ -80,7 +75,7 @@ input.adv-form-control,
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
-.adv-invalid-txt {
+.adv-error-text {
   color: #D92F35; }
 
 input.adv-form-control:focus {
@@ -267,17 +262,24 @@ input.adv-form-control:focus {
 .adv-btn-sm {
   border-width: 2px; }
 
-td > .btn-group > .btn {
+td > .btn-group > .adv-btn-info {
   position: relative; }
-  td > .btn-group > .btn .adv-caret {
+  td > .btn-group > .adv-btn-info .adv-caret {
     margin-left: 2.1rem; }
-    td > .btn-group > .btn .adv-caret::before {
+    td > .btn-group > .adv-btn-info .adv-caret::before {
       content: "";
       position: absolute;
       height: 100%;
       border-left: 1px solid;
+      border-left-color: #C3E1F4;
       top: 0;
-      right: 2.8rem; }
+      right: 2.8rem;
+      -webkit-transition: border-left-color;
+      transition: border-left-color; }
+  td > .btn-group > .adv-btn-info:hover .adv-caret::before, td > .btn-group > .adv-btn-info:focus .adv-caret::before {
+    border-left-color: #67B2E4;
+    -webkit-transition: border-left-color;
+    transition: border-left-color; }
 
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
@@ -287,6 +289,64 @@ td > .btn-group > .btn {
   color: #3498DB;
   margin-right: 1rem;
   font-size: 1.8rem; }
+
+.adv-radio {
+  padding-left: 0; }
+  .adv-radio input[type="radio"] {
+    display: none; }
+    .adv-radio input[type="radio"]:checked + label::before {
+      content: "●";
+      font-size: 2rem;
+      line-height: 1.1rem;
+      text-align: center;
+      color: #67B2E4; }
+  .adv-radio label {
+    display: inline-block;
+    position: relative;
+    padding-left: 2rem;
+    margin-right: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: normal;
+    cursor: pointer; }
+    .adv-radio label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      height: 1.6rem;
+      width: 1.6rem;
+      border: 1px solid #B7B7B7;
+      border-radius: 50%; }
+
+.adv-checkbox {
+  padding-left: 0; }
+  .adv-checkbox input[type="checkbox"] {
+    display: none; }
+    .adv-checkbox input[type="checkbox"]:checked + label::before {
+      content: "✔";
+      font-size: 2rem;
+      line-height: 1.1rem;
+      text-align: center;
+      color: #67B2E4; }
+  .adv-checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 2rem;
+    margin-right: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: normal;
+    cursor: pointer; }
+    .adv-checkbox label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      height: 1.6rem;
+      width: 1.6rem;
+      border: 1px solid #B7B7B7;
+      border-radius: 0; }
 
 /*-------------------------------------*/
 /*------------- ALERT BOX -------------*/

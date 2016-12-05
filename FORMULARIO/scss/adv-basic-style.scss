@@ -25,15 +25,6 @@ p {
 
 
 /*-------------------------------------*/
-/*------------ TEXT STYLES ------------*/
-/*-------------------------------------*/
-// ERROR TEXTS
-.adv-error-txt {
-	color: $adv-red;
-}
-
-
-/*-------------------------------------*/
 /*-------- BORDER-RADIUS RESET --------*/
 /*-------------------------------------*/
 .adv-panel-default,
@@ -100,7 +91,7 @@ input.adv-form-control,
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
 // FORM VALIDATIONS
-.adv-invalid-txt {
+.adv-error-text {
 	color: $adv-red;
 }
 input.adv-form-control {
@@ -214,8 +205,8 @@ input.adv-form-control {
 	border-width: 2px;
 }
 
-// SPLIT BUTTON DROPDOWN (OPTIONAL)
-td>.btn-group>.btn {
+// SPLIT BUTTON DROPDOWN (ALTERNATIVE)
+td>.btn-group>.adv-btn-info {
 	position: relative;
 
 	.adv-caret {
@@ -225,8 +216,18 @@ td>.btn-group>.btn {
 			position: absolute;
 			height: 100%;
 			border-left: 1px solid;
+			border-left-color: $adv-blue30;
 			top: 0;
 			right: 2.8rem;
+			@include transition(border-left-color);
+		}
+	}
+
+	&:hover,
+	&:focus {
+		.adv-caret::before {
+			border-left-color: $adv-blue75;
+			@include transition(border-left-color);
 		}
 	}
 }
@@ -241,6 +242,49 @@ td>.btn-group>.btn {
 	color: $adv-blue;
 	margin-right: 1rem;
 	font-size: 1.8rem;
+}
+
+// RADIOS & CHECHBOXES
+@mixin radio-checkbox($type, $unicode, $border-radius) {
+	padding-left: 0; 
+	input[type="#{$type}"] {
+		display: none;
+		&:checked + label::before {
+	    content: $unicode;
+	    font-size: 2rem;
+	    line-height: 1.1rem;
+	    text-align: center;
+	    color: $adv-blue75;
+		}
+	}
+	label {
+		display: inline-block;
+		position: relative;
+		padding-left: 2rem;
+	  margin-right: 1.5rem;
+	  font-size: 1.3rem;
+		font-weight: normal;
+		cursor: pointer;
+
+		&::before {
+		  content: "";
+		  display: inline-block;
+		  position: absolute;
+		  left: 0;
+		  bottom: 1px;
+		  height: 1.6rem;
+		  width: 1.6rem;
+		  border: 1px solid $adv-gray45;
+		  border-radius: #{$border-radius};
+		}
+	}
+}
+
+.adv-radio {
+	@include radio-checkbox(radio, "\25CF", 50%);
+}
+.adv-checkbox {
+	@include radio-checkbox(checkbox, "\2714", 0);
 }
 
 

@@ -78,7 +78,7 @@
 												<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode"><!-- {{configuration.portNumber}} --></label>
 												<div class="col-sm-9" ng-show="configEditMode">
 													<input class="form-control adv-form-control" name="portNumber" id="focusedInput" type="text" placeholder="Enter port number" required value="21" ng-model="configuration.portNumber" />
-													<span class="adv-invalid-txt" ng-show="configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine">The port is required.</span>
+													<span class="adv-error-text" ng-show="configurationForm.portNumber.$invalid && !configurationForm.portNumber.$pristine">Port number is required.</span>
 												</div>
 											</div>
 
@@ -87,7 +87,7 @@
 												<label class="col-sm-9 control-label" style="text-align:left" ng-show="!configEditMode"><!-- {{configuration.physicalRootPath}} --></label>
 												<div class="col-sm-9" ng-show="configEditMode">
 													<input class="form-control adv-form-control" name="physicalRootPath" id="focusedInput" type="text" placeholder="Enter physical path" required ng-model="configuration.physicalRootPath" />
-													<span class="adv-invalid-txt" ng-show="configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine">The physical path is required.</span>
+													<span class="adv-error-text" ng-show="configurationForm.physicalRootPath.$invalid && !configurationForm.physicalRootPath.$pristine">Physical FTP root path is required.</span>
 											</div>
 										</div>
 
@@ -121,22 +121,22 @@
 										<div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
 											<label class="col-sm-2 control-label">Name:</label>
 											<div class="col-sm-10">
-												<input name="name" class="form-control adv-form-control" id="focusedInput" type="text" placeholder="Enter full user name." required ng-model="user.name" />
-												<span class="adv-error-txt" ng-show="userForm.name.$invalid && !userForm.name.$pristine">The name is required.</span>
+												<input name="name" class="form-control adv-form-control" id="focusedInput" type="text" placeholder="Enter full name." required ng-model="user.name" />
+												<span class="adv-error-text" ng-show="userForm.name.$invalid && !userForm.name.$pristine">Name is required.</span>
 											</div>
 										</div>
 										<div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
 											<label class="col-sm-2 control-label">User name:</label>
 											<div class="col-sm-10">
 												<input name="username" class="form-control adv-form-control" id="focusedInput" type="text" placeholder="Enter user name" required ng-model="user.username" />
-												<span class="adv-error-txt" ng-show="userForm.username.$invalid && !userForm.username.$pristine">The name is required.</span>
+												<span class="adv-error-text" ng-show="userForm.username.$invalid && !userForm.username.$pristine">User name is required.</span>
 											</div>
 										</div>
 										<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
 											<label class="col-sm-2 control-label">E-mail:</label>
 											<div class="col-sm-10">
 												<input name="email" class="form-control adv-form-control" id="focusedInput" type="email" placeholder="Enter e-mail, for example: name@example.com" required ng-model="user.email" />
-												<span class="adv-error-txt" ng-show="userForm.email.$invalid && !userForm.email.$pristine">The e-mail is required.</span>
+												<span class="adv-error-text" ng-show="userForm.email.$invalid && !userForm.email.$pristine">E-mail is required.</span>
 											</div>
 										</div>
 										<div class="form-group has-feedback" ng-class="{'has-error' : user.emailConfirmation != user.email , 'has-success' : user.emailConfirmation == user.email }">
@@ -151,14 +151,14 @@
 											<label class="col-sm-2 control-label">Home path:</label>
 											<div class="col-sm-10">
 												<input name="homePath" class="form-control adv-form-control" id="focusedInput" type="text" placeholder="Enter root path" required ng-model="user.homePath" />
-												<span class="adv-error-txt" ng-show="userForm.homePath.$invalid && !userForm.homePath.$pristine">The home path is required.</span>
+												<span class="adv-error-text" ng-show="userForm.homePath.$invalid && !userForm.homePath.$pristine">Home path is required.</span>
 											</div>
 										</div>
 										<div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
 											<label class="col-sm-2 control-label">Password:</label>
 											<div class="col-sm-10">
 												<input name="password" class="form-control adv-form-control" id="focusedInput" type="password" required ng-model="user.password" />
-												<span class="adv-error-txt" ng-show="userForm.password.$invalid && !userForm.password.$pristine">The password is required.</span>
+												<span class="adv-error-text" ng-show="userForm.password.$invalid && !userForm.password.$pristine">Password is required.</span>
 											</div>
 										</div>
 										<div class="form-group has-feedback" ng-class="{'has-error' : user.passwordConfirmation != user.password , 'has-success' : user.passwordConfirmation == user.password }">
@@ -172,8 +172,14 @@
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="inputSuccess">Access level:</label>
 											<div class="col-sm-10">
-					  							<label class="radio-inline"><input type="radio" name="access" checked="checked">Read</label>
-												<label class="radio-inline"><input type="radio" name="access">Read / Write</label>
+					  						<div class="radio-inline adv-radio">
+					  							<input id="radio1" type="radio" name="access" checked="checked">
+					  							<label for="radio1">Read</label>
+				  							</div>
+												<div class="radio-inline adv-radio">
+													<input id="radio2" type="radio" name="access">
+													<label for="radio2">Read / Write</label>
+												</div>
 											</div>
 										</div>
 										<div class="form-group">

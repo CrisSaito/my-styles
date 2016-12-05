@@ -37,6 +37,18 @@
 .adv-btn .glyphicon {
 	padding-right: 0.8rem; 
 }
+
+.form-group[ng-class] {
+	margin-bottom: 3rem;
+}
+[name="userForm"] .form-group:last-child {
+	margin-bottom: 0;
+}
+
+.adv-error-text {
+	position: absolute;
+	font-size: 1.3rem;
+}
 // SERVICE STATUS
 
 
