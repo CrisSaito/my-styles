@@ -21,15 +21,16 @@
     padding: 0.5rem 1rem 0.5rem 0; }
 
 /*-------------------------------------*/
+/*--------------- PANELS --------------*/
+/*-------------------------------------*/
+.adv-panel-default {
+  margin: 3rem 0; }
+
+/*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
-.adv-panel-heading p {
-  display: inline-block;
-  color: #3498DB;
-  margin-right: 1rem; }
-
 .adv-btn {
-  min-width: 7.2rem;
+  min-width: 8rem;
   margin-right: 1rem; }
 
 .adv-btn .glyphicon {
@@ -46,5 +47,14 @@
 /*-------------------------------------*/
 table {
   margin-top: 2rem; }
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  padding: 1rem 0.5rem;
+  vertical-align: middle; }
 
 /*# sourceMappingURL=adv-ftp-form.css.map */

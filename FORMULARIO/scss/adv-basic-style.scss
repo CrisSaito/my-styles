@@ -1,10 +1,10 @@
+@import "adv-variables-mixins.scss";
+@charset "UTF-8";
+
 /* ----------------------------
 	- Customized ADVISEU STYLES
 	- FONTS
 ------------------------------- */
-
-@import "adv-variables-mixins.scss";
-@charset "UTF-8";
 
 
 /*-------------------------------------*/
@@ -14,7 +14,7 @@ html {
 	font-size: 10px;
 }
 body {
-	font-family: "Open Sans", "sans-serif"
+	font-family: "Open Sans", "sans-serif";
 }
 a {
 	color: $black;
@@ -25,12 +25,22 @@ p {
 
 
 /*-------------------------------------*/
+/*------------ TEXT STYLES ------------*/
+/*-------------------------------------*/
+// ERROR TEXTS
+.adv-error-txt {
+	color: $adv-red;
+}
+
+
+/*-------------------------------------*/
 /*-------- BORDER-RADIUS RESET --------*/
 /*-------------------------------------*/
 .adv-panel-default,
 input.adv-form-control,
 .adv-btn-sm {
 	border-radius: 0;
+	box-shadow: none;
 }
 
 
@@ -74,14 +84,15 @@ input.adv-form-control,
 
 
 /*-------------------------------------*/
-/*-------------- PAINEIS --------------*/
+/*-------------- PANELS ---------------*/
 /*-------------------------------------*/
-.adv-panel-default {
+.adv-panel-default,
+.adv-panel-heading {
 	border-bottom-color: $gray-1;
 }
 
-.adv-panel-heading {
-	border-bottom-color: $gray-1;
+.adv-panel-default {
+	box-shadow: none;
 }
 
 
@@ -196,13 +207,43 @@ input.adv-form-control {
 	}
 
 // DROPDOWN BUTTON
-.adv-btn-info.adv-btn-sm.dropdown-toggle {
+.adv-btn-info.adv-btn-sm.dropdown-toggle:last-child {
 	border-left-color: $adv-blue;
 }
 .adv-btn-sm {
 	border-width: 2px;
 }
-	
+
+// SPLIT BUTTON DROPDOWN (OPTIONAL)
+td>.btn-group>.btn {
+	position: relative;
+
+	.adv-caret {
+		margin-left: 2.1rem;
+		&::before {
+			content: "";
+			position: absolute;
+			height: 100%;
+			border-left: 1px solid;
+			top: 0;
+			right: 2.8rem;
+		}
+	}
+}
+
+
+/*-------------------------------------*/
+/*--------------- FORMS ---------------*/
+/*-------------------------------------*/
+// PANEL-HEADING
+.adv-panel-heading p {
+	display: inline-block;
+	color: $adv-blue;
+	margin-right: 1rem;
+	font-size: 1.8rem;
+}
+
+
 /*-------------------------------------*/
 /*------------- ALERT BOX -------------*/
 /*-------------------------------------*/

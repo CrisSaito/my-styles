@@ -1,8 +1,4 @@
 /* ----------------------------
-	- Customized ADVISEU STYLES
-	- FONTS
-------------------------------- */
-/* ----------------------------
 	- Customized ADVISEU COLORS
 	- MIXINS for prefixed css
 ------------------------------- */
@@ -12,6 +8,10 @@
 /*-------------------------------------*/
 /*-------------- MIXINS ---------------*/
 /*-------------------------------------*/
+/* ----------------------------
+	- Customized ADVISEU STYLES
+	- FONTS
+------------------------------- */
 /*-------------------------------------*/
 /*------------ ROOT STYLE -------------*/
 /*-------------------------------------*/
@@ -28,12 +28,19 @@ p {
   margin: 0; }
 
 /*-------------------------------------*/
+/*------------ TEXT STYLES ------------*/
+/*-------------------------------------*/
+.adv-error-txt {
+  color: #D92F35; }
+
+/*-------------------------------------*/
 /*-------- BORDER-RADIUS RESET --------*/
 /*-------------------------------------*/
 .adv-panel-default,
 input.adv-form-control,
 .adv-btn-sm {
-  border-radius: 0; }
+  border-radius: 0;
+  box-shadow: none; }
 
 /*-------------------------------------*/
 /*------------ TABS STYLE -------------*/
@@ -61,13 +68,14 @@ input.adv-form-control,
     background-color: #3498DB; }
 
 /*-------------------------------------*/
-/*-------------- PAINEIS --------------*/
+/*-------------- PANELS ---------------*/
 /*-------------------------------------*/
-.adv-panel-default {
-  border-bottom-color: #CCC; }
-
+.adv-panel-default,
 .adv-panel-heading {
   border-bottom-color: #CCC; }
+
+.adv-panel-default {
+  box-shadow: none; }
 
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
@@ -253,11 +261,32 @@ input.adv-form-control:focus {
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-info.adv-btn-sm.dropdown-toggle {
+.adv-btn-info.adv-btn-sm.dropdown-toggle:last-child {
   border-left-color: #3498DB; }
 
 .adv-btn-sm {
   border-width: 2px; }
+
+td > .btn-group > .btn {
+  position: relative; }
+  td > .btn-group > .btn .adv-caret {
+    margin-left: 2.1rem; }
+    td > .btn-group > .btn .adv-caret::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      border-left: 1px solid;
+      top: 0;
+      right: 2.8rem; }
+
+/*-------------------------------------*/
+/*--------------- FORMS ---------------*/
+/*-------------------------------------*/
+.adv-panel-heading p {
+  display: inline-block;
+  color: #3498DB;
+  margin-right: 1rem;
+  font-size: 1.8rem; }
 
 /*-------------------------------------*/
 /*------------- ALERT BOX -------------*/
