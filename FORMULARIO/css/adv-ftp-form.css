@@ -52,6 +52,15 @@
 .adv-panel-default + .adv-btn {
   padding: 1.3rem 2rem; }
 
+#new-user-form form > .form-group {
+  display: flex;
+  align-items: center; }
+  #new-user-form form > .form-group label {
+    padding-top: 0; }
+
+form > .form-group label {
+  line-height: 1.6rem; }
+
 /*-------------------------------------*/
 /*---------- USER LIST TABLE ----------*/
 /*-------------------------------------*/
