@@ -16,9 +16,6 @@
 /*-------------------------------------*/
 /*------------ ROOT STYLE -------------*/
 /*-------------------------------------*/
-html {
-  font-size: 10px; }
-
 body {
   font-family: "Open Sans", "sans-serif"; }
 
@@ -33,12 +30,25 @@ p {
 /*-------------------------------------*/
 .adv-panel-default,
 input.adv-form-control,
-.adv-btn-sm {
+.adv-btn-sm,
+.adv-navbar-inverse {
   border-radius: 0;
   box-shadow: none; }
 
 /*-------------------------------------*/
-/*------------ TABS STYLE -------------*/
+/*--------------- IMAGES --------------*/
+/*-------------------------------------*/
+.adv-img-thumbnail {
+  background-color: #FFF; }
+
+/*-------------------------------------*/
+/*------------ NAVBAR STYLE -----------*/
+/*-------------------------------------*/
+.adv-navbar-inverse {
+  background-color: #333; }
+
+/*-------------------------------------*/
+/*----------- NAV TABS STYLE ----------*/
 /*-------------------------------------*/
 .form-group {
   position: relative; }
@@ -57,7 +67,12 @@ input.adv-form-control,
 .adv-nav-tabs {
   border-bottom: 2px solid #3498DB; }
   .adv-nav-tabs > li {
-    float: left; }
+    max-width: 50%;
+    vertical-align: bottom;
+    white-space: nowrap; }
+    .adv-nav-tabs > li a {
+      overflow: hidden;
+      text-overflow: ellipsis; }
   .adv-nav-tabs > li.active > a, .adv-nav-tabs > li.active > a:focus {
     color: #FFF;
     background-color: #3498DB; }
@@ -71,6 +86,12 @@ input.adv-form-control,
 
 .adv-panel-default {
   box-shadow: none; }
+
+/*-------------------------------------*/
+/*--------------- TABLES --------------*/
+/*-------------------------------------*/
+.adv-table-wrap {
+  overflow: auto; }
 
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/

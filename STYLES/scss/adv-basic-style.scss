@@ -10,9 +10,6 @@
 /*-------------------------------------*/
 /*------------ ROOT STYLE -------------*/
 /*-------------------------------------*/
-html {
-	font-size: 10px;
-}
 body {
 	font-family: "Open Sans", "sans-serif";
 }
@@ -29,14 +26,31 @@ p {
 /*-------------------------------------*/
 .adv-panel-default,
 input.adv-form-control,
-.adv-btn-sm {
+.adv-btn-sm,
+.adv-navbar-inverse {
 	border-radius: 0;
 	box-shadow: none;
 }
 
 
 /*-------------------------------------*/
-/*------------ TABS STYLE -------------*/
+/*--------------- IMAGES --------------*/
+/*-------------------------------------*/
+.adv-img-thumbnail {
+	background-color: $white;
+}
+
+
+/*-------------------------------------*/
+/*------------ NAVBAR STYLE -----------*/
+/*-------------------------------------*/
+.adv-navbar-inverse {
+	background-color: $black;
+}
+
+
+/*-------------------------------------*/
+/*----------- NAV TABS STYLE ----------*/
 /*-------------------------------------*/
 .form-group {
 	position: relative;
@@ -59,10 +73,14 @@ input.adv-form-control,
 	border-bottom: 2px solid $adv-blue;
 
 	& > li {
-		float: left;
-	}
-	& > li > a {
-		
+		max-width: 50%;
+		vertical-align: bottom;
+		white-space: nowrap;
+
+		a {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 	}
 	&>li.active {
 		&>a,
@@ -84,6 +102,14 @@ input.adv-form-control,
 
 .adv-panel-default {
 	box-shadow: none;
+}
+
+
+/*-------------------------------------*/
+/*--------------- TABLES --------------*/
+/*-------------------------------------*/
+.adv-table-wrap {
+	overflow: auto;
 }
 
 

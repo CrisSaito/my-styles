@@ -1,0 +1,28 @@
+@import "adv-variables-mixins.scss";
+
+
+/*-------------------------------------*/
+/*-------------- HEADER ---------------*/
+/*-------------------------------------*/
+.adv-header-left {
+	float: left;
+
+	.adv-day-time {
+		color: $white;
+	}
+}
+.adv-header-right {
+	float: right;
+
+	.adv-img-thumbnail {
+		height: 4rem;
+		width: 4rem;
+
+		span {
+			display: inline-block;
+			height: 100%;
+			width: 100%;
+			background-size: contain;
+		}
+	}
+}

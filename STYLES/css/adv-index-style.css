@@ -1,0 +1,30 @@
+/* ----------------------------
+	- Customized ADVISEU COLORS
+	- MIXINS for prefixed css
+------------------------------- */
+/*-------------------------------------*/
+/*-------------- COLORS ---------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------- MIXINS ---------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------- HEADER ---------------*/
+/*-------------------------------------*/
+.adv-header-left {
+  float: left; }
+  .adv-header-left .adv-day-time {
+    color: #FFF; }
+
+.adv-header-right {
+  float: right; }
+  .adv-header-right .adv-img-thumbnail {
+    height: 4rem;
+    width: 4rem; }
+    .adv-header-right .adv-img-thumbnail span {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      background-size: contain; }
+
+/*# sourceMappingURL=adv-index-style.css.map */

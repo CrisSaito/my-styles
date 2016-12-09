@@ -2,10 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title></title>
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/adv-basic-style.css">
-		<link rel="stylesheet" href="css/adv-ftp-form.css">
+		<link rel="stylesheet" href="../STYLES/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../STYLES/css/adv-basic-style.css">
+		<link rel="stylesheet" href="../STYLES/css/adv-ftp-form.css">
 	</head>
 
 	<body>
@@ -45,10 +46,10 @@
 				  		<div class="panel-heading adv-panel-heading">
 								<p><b>Service Status:</b></p>
 								<button type="button" class="adv-btn adv-btn-success-invert" ng-show="ftpServerRunning">
-									<span class="glyphicon glyphicon-ok"></span>Server is now Running
+									<span class="glyphicon glyphicon-play"></span>Server is now Running
 								</button> 
 								<button type="button" class="adv-btn adv-btn-danger-invert" ng-show="!ftpServerRunning">
-									<span class="glyphicon glyphicon-remove"></span>Server is now Stopped
+									<span class="glyphicon glyphicon-stop"></span>Server is now Stopped
 								</button>
 					  		</div>
 					  		<div class="panel-body">
@@ -67,8 +68,8 @@
 										<div class="row form-group">
 											<label class="col-sm-3 control-label">Actions:</label>
 											<div class="col-sm-9">
-												<button type="button" class="adv-btn adv-btn-success-invert" ng-show="!ftpServerRunning" ng-click="startServer()"><span class="glyphicon glyphicon-ok"></span>Start</button>
-												<button type="button" class="adv-btn adv-btn-danger-invert" ng-show="ftpServerRunning" ng-click="stopServer()"><span class="glyphicon glyphicon-remove"></span>Stop</button>
+												<button type="button" class="adv-btn adv-btn-success-invert" ng-show="!ftpServerRunning" ng-click="startServer()"><span class="glyphicon glyphicon-play"></span>Start</button>
+												<button type="button" class="adv-btn adv-btn-danger-invert" ng-show="ftpServerRunning" ng-click="stopServer()"><span class="glyphicon glyphicon-stop"></span>Stop</button>
 												<button type="button" class="adv-btn adv-btn-warning-invert" ng-show="ftpServerRunning" ng-click="restartServer()"><span class="glyphicon glyphicon-repeat"></span>Restart</button>
 								  			</div>
 								  		</div>
@@ -140,7 +141,7 @@
 											</div>
 										</div>
 										<div class="form-group has-feedback" ng-class="{'has-error' : user.emailConfirmation != user.email , 'has-success' : user.emailConfirmation == user.email }">
-											<label class="col-sm-2 control-label" for="inputSuccess">E-mail confirmation:</label>
+											<label class="col-sm-2 control-label" for="inputSuccess">E-mail confirm:</label>
 											<div class="col-sm-10">
 											<input type="email" name="emailConfirmation" class="form-control adv-form-control" id="inputSuccess" required ng-model="user.emailConfirmation" />
 												<span class="glyphicon form-control-feedback" 
@@ -162,7 +163,7 @@
 											</div>
 										</div>
 										<div class="form-group has-feedback" ng-class="{'has-error' : user.passwordConfirmation != user.password , 'has-success' : user.passwordConfirmation == user.password }">
-											<label class="col-sm-2 control-label" for="inputSuccess">Pwd confirmation:</label>
+											<label class="col-sm-2 control-label" for="inputSuccess">Pwd confirm:</label>
 											<div class="col-sm-10">
 												<input name="passwordConfirmation" type="password" class="form-control adv-form-control" id="inputSuccess" required ng-model="user.passwordConfirmation" />
 												<span class="glyphicon form-control-feedback" 
@@ -197,108 +198,110 @@
 							</div>
 						</div>
 
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>User</th>
-									<th>Email</th>
-									<th>Root Path</th>
-									<th>Status</th>
-									<th>Actions</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>John Doe</td>
-									<td>john@example.com</td>
-									<td>john@example.com</td>
-									<td>/home/john/</td>
-									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
-									<td>
-										<div class="btn-group">
-										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
-										  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
-										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
-										    <span class="caret"></span>
-										  </button> -->
-										  <ul class="dropdown-menu" role="menu">
-										    <li><a href="#">Enable</a></li>
-										    <li><a href="#">Disable</a></li>
-										    <li><a href="#">Edit</a></li>
-										    <li><a href="#">Remove</a></li>
-										  </ul>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>Mary Moe</td>
-									<td>mary@example.com</td>
-									<td>mary@example.com</td>
-									<td>/home/mary/</td>
-									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
-									<td>
-										<div class="btn-group">
-											<button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
-										  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
-										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
-										    <span class="caret"></span>
-										  </button> -->
-										  <ul class="dropdown-menu" role="menu">
-										    <li><a href="#">Enable</a></li>
-										    <li><a href="#">Disable</a></li>
-										    <li><a href="#">Edit</a></li>
-										    <li><a href="#">Remove</a></li>
-										  </ul>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>July Doodley</td>
-									<td>july@example.com</td>
-									<td>july@example.com</td>
-									<td>/home/july/</td>
-									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Disabled</button></td>
-									<td>
-										<div class="btn-group">
-										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
-										  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
-										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
-										    <span class="caret"></span>
-										  </button> -->
-										  <ul class="dropdown-menu" role="menu">
-										    <li><a href="#">Enable</a></li>
-										    <li><a href="#">Disable</a></li>
-										    <li><a href="#">Edit</a></li>
-										    <li><a href="#">Remove</a></li>
-										  </ul>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>july@example.com</td>
-									<td>july@example.com</td>
-									<td>/home/july/</td>
-									<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
-									<td>
-										<div class="btn-group">
-										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
-										  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
-										  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
-										    <span class="caret"></span>
-										  </button> -->
-										  <ul class="dropdown-menu" role="menu">
-										    <li><a href="#">Enable</a></li>
-										    <li><a href="#">Disable</a></li>
-										    <li><a href="#">Edit</a></li>
-										    <li><a href="#">Remove</a></li>
-										  </ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<div class="adv-table-wrap">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>User</th>
+										<th>Email</th>
+										<th>Root Path</th>
+										<th>Status</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>John Doe</td>
+										<td>john@example.com</td>
+										<td>john@example.com</td>
+										<td>/home/john/</td>
+										<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
+										<td>
+											<div class="btn-group">
+											  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
+											  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
+											  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+											    <span class="caret"></span>
+											  </button> -->
+											  <ul class="dropdown-menu" role="menu">
+											    <li><a href="#">Enable</a></li>
+											    <li><a href="#">Disable</a></li>
+											    <li><a href="#">Edit</a></li>
+											    <li><a href="#">Remove</a></li>
+											  </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Mary Moe</td>
+										<td>mary@example.com</td>
+										<td>mary@example.com</td>
+										<td>/home/mary/</td>
+										<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
+										<td>
+											<div class="btn-group">
+												<button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
+											  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
+											  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+											    <span class="caret"></span>
+											  </button> -->
+											  <ul class="dropdown-menu" role="menu">
+											    <li><a href="#">Enable</a></li>
+											    <li><a href="#">Disable</a></li>
+											    <li><a href="#">Edit</a></li>
+											    <li><a href="#">Remove</a></li>
+											  </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>July Doodley</td>
+										<td>july@example.com</td>
+										<td>july@example.com</td>
+										<td>/home/july/</td>
+										<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Disabled</button></td>
+										<td>
+											<div class="btn-group">
+											  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
+											  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
+											  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+											    <span class="caret"></span>
+											  </button> -->
+											  <ul class="dropdown-menu" role="menu">
+											    <li><a href="#">Enable</a></li>
+											    <li><a href="#">Disable</a></li>
+											    <li><a href="#">Edit</a></li>
+											    <li><a href="#">Remove</a></li>
+											  </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>july@example.com</td>
+										<td>july@example.com</td>
+										<td>/home/july/</td>
+										<td><button type="button" class="btn adv-btn-success btn-sm adv-btn-sm">Enabled</button></td>
+										<td>
+											<div class="btn-group">
+											  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">Actions<span class="caret adv-caret"></span></button>
+											  <!-- <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm"><span>Actions</span></button>
+											  <button type="button" class="btn adv-btn-info btn-sm adv-btn-sm dropdown-toggle" data-toggle="dropdown">
+											    <span class="caret"></span>
+											  </button> -->
+											  <ul class="dropdown-menu" role="menu">
+											    <li><a href="#">Enable</a></li>
+											    <li><a href="#">Disable</a></li>
+											    <li><a href="#">Edit</a></li>
+											    <li><a href="#">Remove</a></li>
+											  </ul>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
 					</div> <!-- Fim tab configuration -->
 				</div> <!-- Fim tab-content -->
