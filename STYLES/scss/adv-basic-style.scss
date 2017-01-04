@@ -25,6 +25,8 @@ p {
 /*-------- BORDER-RADIUS RESET --------*/
 /*-------------------------------------*/
 .nav-tabs>li>a,
+.nav-tabs>li>a:hover,
+.nav-tabs>li>a:focus,
 .panel-default,
 input.adv-form-control,
 .btn,
@@ -65,8 +67,9 @@ input.adv-form-control,
 
 		&:focus,
 		&:hover {
+			border-color: transparent;
 			color: $adv-blue;
-			background-color: $white;
+			background-color: transparent;
 			@include transition(color 0.2s);
 		}
 	}
@@ -86,7 +89,8 @@ input.adv-form-control,
 	}
 	&>li.active {
 		&>a,
-		&>a:focus {
+		&>a:focus,
+		&>a:hover {
 			color: $white;
 			background-color: $adv-blue;
 		}

@@ -29,6 +29,8 @@ p {
 /*-------- BORDER-RADIUS RESET --------*/
 /*-------------------------------------*/
 .nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus,
 .panel-default,
 input.adv-form-control,
 .btn,
@@ -61,8 +63,9 @@ input.adv-form-control,
     -webkit-transition: color 0.2s;
     transition: color 0.2s; }
     .nav > li > a:focus, .nav > li > a:hover {
+      border-color: transparent;
       color: #3498DB;
-      background-color: #FFF;
+      background-color: transparent;
       -webkit-transition: color 0.2s;
       transition: color 0.2s; }
 
@@ -75,7 +78,7 @@ input.adv-form-control,
     .nav-tabs > li a {
       overflow: hidden;
       text-overflow: ellipsis; }
-  .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus {
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
     color: #FFF;
     background-color: #3498DB; }
 
