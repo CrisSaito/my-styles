@@ -28,23 +28,25 @@ p {
 /*-------------------------------------*/
 /*-------- BORDER-RADIUS RESET --------*/
 /*-------------------------------------*/
-.adv-panel-default,
+.nav-tabs > li > a,
+.panel-default,
 input.adv-form-control,
-.adv-btn-sm,
-.adv-navbar-inverse {
+.btn,
+.form-control,
+.navbar-inverse {
   border-radius: 0;
   box-shadow: none; }
 
 /*-------------------------------------*/
 /*--------------- IMAGES --------------*/
 /*-------------------------------------*/
-.adv-img-thumbnail {
+.img-thumbnail {
   background-color: #FFF; }
 
 /*-------------------------------------*/
 /*------------ NAVBAR STYLE -----------*/
 /*-------------------------------------*/
-.adv-navbar-inverse {
+.navbar-inverse {
   background-color: #333; }
 
 /*-------------------------------------*/
@@ -53,50 +55,53 @@ input.adv-form-control,
 .form-group {
   position: relative; }
 
-.adv-nav > li {
+.nav > li {
   display: inline-block; }
-  .adv-nav > li > a {
+  .nav > li > a {
     -webkit-transition: color 0.2s;
     transition: color 0.2s; }
-    .adv-nav > li > a:focus, .adv-nav > li > a:hover {
+    .nav > li > a:focus, .nav > li > a:hover {
       color: #3498DB;
       background-color: #FFF;
       -webkit-transition: color 0.2s;
       transition: color 0.2s; }
 
-.adv-nav-tabs {
+.nav-tabs {
   border-bottom: 2px solid #3498DB; }
-  .adv-nav-tabs > li {
+  .nav-tabs > li {
     max-width: 50%;
     vertical-align: bottom;
     white-space: nowrap; }
-    .adv-nav-tabs > li a {
+    .nav-tabs > li a {
       overflow: hidden;
       text-overflow: ellipsis; }
-  .adv-nav-tabs > li.active > a, .adv-nav-tabs > li.active > a:focus {
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus {
     color: #FFF;
     background-color: #3498DB; }
 
 /*-------------------------------------*/
 /*-------------- PANELS ---------------*/
 /*-------------------------------------*/
-.adv-panel-default,
-.adv-panel-heading {
-  border-bottom-color: #CCC; }
+.panel-default {
+  border-width: 0 0 1px 0; }
 
-.adv-panel-default {
+.panel-default > .panel-heading {
+  border-bottom-color: #CCC;
+  background-color: #FFF; }
+
+.panel-default {
   box-shadow: none; }
 
 /*-------------------------------------*/
 /*--------------- TABLES --------------*/
 /*-------------------------------------*/
-.adv-table-wrap {
+.table-wrap {
   overflow: auto; }
 
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
-.adv-error-text {
+.error-text {
   color: #D92F35; }
 
 input.adv-form-control:focus {
@@ -105,14 +110,15 @@ input.adv-form-control:focus {
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
 
-.has-error .adv-form-control {
+.has-error .form-control {
   border-color: #D92F35; }
 
 /*-------------------------------------*/
 /*-------------- BUTTONS --------------*/
 /*-------------------------------------*/
-.adv-btn {
+.btn {
   display: inline-block;
+  min-width: 100px;
   padding: 0.6rem 1.2rem;
   margin-bottom: 0;
   font-weight: 400;
@@ -127,177 +133,177 @@ input.adv-form-control:focus {
   -ms-user-select: none;
   user-select: none;
   background-image: none; }
-  .adv-btn {
+  .btn {
     background-color: #FFF;
     border: 2px solid transparent;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-default {
+.btn-default {
   color: #FFF;
   background-color: #5F5F5F;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-default:hover, .adv-btn-default:focus {
+  .btn-default:hover, .btn-default:focus {
     border-color: #5F5F5F;
     background-color: #FFF;
     color: #5F5F5F;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-primary {
+.btn-primary {
   color: #FFF;
   background-color: #3498DB;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-primary:hover, .adv-btn-primary:focus {
+  .btn-primary:hover, .btn-primary:focus {
     border-color: #3498DB;
     background-color: #FFF;
     color: #3498DB;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-success {
+.btn-success {
   color: #FFF;
   background-color: #2ECC71;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-success:hover, .adv-btn-success:focus {
+  .btn-success:hover, .btn-success:focus {
     border-color: #2ECC71;
     background-color: #FFF;
     color: #2ECC71;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-danger {
+.btn-danger {
   color: #FFF;
   background-color: #D92F35;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-danger:hover, .adv-btn-danger:focus {
+  .btn-danger:hover, .btn-danger:focus {
     border-color: #D92F35;
     background-color: #FFF;
     color: #D92F35;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-warning {
+.btn-warning {
   color: #FFF;
   background-color: #F57E20;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-warning:hover, .adv-btn-warning:focus {
+  .btn-warning:hover, .btn-warning:focus {
     border-color: #F57E20;
     background-color: #FFF;
     color: #F57E20;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-info {
+.btn-info {
   color: #FFF;
   background-color: #67B2E4;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-info:hover, .adv-btn-info:focus {
+  .btn-info:hover, .btn-info:focus {
     border-color: #67B2E4;
     background-color: #FFF;
     color: #67B2E4;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-default-invert {
+.btn-default-invert {
   color: #5F5F5F;
   background-color: #FFF;
   border-color: #5F5F5F;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-default-invert:hover, .adv-btn-default-invert:focus {
+  .btn-default-invert:hover, .btn-default-invert:focus {
     background-color: #5F5F5F;
     color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-primary-invert {
+.btn-primary-invert {
   color: #3498DB;
   background-color: #FFF;
   border-color: #3498DB;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-primary-invert:hover, .adv-btn-primary-invert:focus {
+  .btn-primary-invert:hover, .btn-primary-invert:focus {
     background-color: #3498DB;
     color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-success-invert {
+.btn-success-invert {
   color: #2ECC71;
   background-color: #FFF;
   border-color: #2ECC71;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-success-invert:hover, .adv-btn-success-invert:focus {
+  .btn-success-invert:hover, .btn-success-invert:focus {
     background-color: #2ECC71;
     color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-danger-invert {
+.btn-danger-invert {
   color: #D92F35;
   background-color: #FFF;
   border-color: #D92F35;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-danger-invert:hover, .adv-btn-danger-invert:focus {
+  .btn-danger-invert:hover, .btn-danger-invert:focus {
     background-color: #D92F35;
     color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-warning-invert {
+.btn-warning-invert {
   color: #F57E20;
   background-color: #FFF;
   border-color: #F57E20;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-warning-invert:hover, .adv-btn-warning-invert:focus {
+  .btn-warning-invert:hover, .btn-warning-invert:focus {
     background-color: #F57E20;
     color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-info-invert {
+.btn-info-invert {
   color: #67B2E4;
   background-color: #FFF;
   border-color: #67B2E4;
   -webkit-transition: all 0.2s;
   transition: all 0.2s; }
-  .adv-btn-info-invert:hover, .adv-btn-info-invert:focus {
+  .btn-info-invert:hover, .btn-info-invert:focus {
     background-color: #67B2E4;
     color: #FFF;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
-.adv-btn-info.adv-btn-sm.dropdown-toggle:last-child {
+.btn-info.adv-btn-sm.dropdown-toggle:last-child {
   border-left-color: #3498DB; }
 
-.adv-btn-sm {
+.btn-sm {
   border-width: 2px; }
 
-td > .btn-group > .adv-btn-info {
+td > .btn-group > .btn-info {
   position: relative; }
-  td > .btn-group > .adv-btn-info .adv-caret {
-    margin-left: 2.1rem; }
-    td > .btn-group > .adv-btn-info .adv-caret::before {
+  td > .btn-group > .btn-info .caret {
+    margin-left: 2.6rem; }
+    td > .btn-group > .btn-info .caret::before {
       content: "";
       position: absolute;
       height: 100%;
       border-left: 1px solid;
       border-left-color: #C3E1F4;
       top: 0;
-      right: 2.8rem;
+      right: 3.4rem;
       -webkit-transition: border-left-color;
       transition: border-left-color; }
-  td > .btn-group > .adv-btn-info:hover .adv-caret::before, td > .btn-group > .adv-btn-info:focus .adv-caret::before {
+  td > .btn-group > .btn-info:hover .caret::before, td > .btn-group > .btn-info:focus .caret::before {
     border-left-color: #67B2E4;
     -webkit-transition: border-left-color;
     transition: border-left-color; }
@@ -305,23 +311,23 @@ td > .btn-group > .adv-btn-info {
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
-.adv-panel-heading p {
+.panel-heading p {
   display: inline-block;
   color: #3498DB;
   margin-right: 1rem;
   font-size: 1.8rem; }
 
-.adv-radio {
+.radio {
   padding-left: 0; }
-  .adv-radio input[type="radio"] {
+  .radio input[type="radio"] {
     display: none; }
-    .adv-radio input[type="radio"]:checked + label::before {
+    .radio input[type="radio"]:checked + label::before {
       content: "●";
       font-size: 2rem;
       line-height: 1.1rem;
       text-align: center;
       color: #67B2E4; }
-  .adv-radio label {
+  .radio label {
     display: inline-block;
     position: relative;
     padding-left: 2rem;
@@ -329,7 +335,7 @@ td > .btn-group > .adv-btn-info {
     font-size: 1.3rem;
     font-weight: normal;
     cursor: pointer; }
-    .adv-radio label::before {
+    .radio label::before {
       content: "";
       display: inline-block;
       position: absolute;
@@ -340,17 +346,17 @@ td > .btn-group > .adv-btn-info {
       border: 1px solid #B7B7B7;
       border-radius: 50%; }
 
-.adv-checkbox {
+.checkbox {
   padding-left: 0; }
-  .adv-checkbox input[type="checkbox"] {
+  .checkbox input[type="checkbox"] {
     display: none; }
-    .adv-checkbox input[type="checkbox"]:checked + label::before {
+    .checkbox input[type="checkbox"]:checked + label::before {
       content: "✔";
       font-size: 2rem;
       line-height: 1.1rem;
       text-align: center;
       color: #67B2E4; }
-  .adv-checkbox label {
+  .checkbox label {
     display: inline-block;
     position: relative;
     padding-left: 2rem;
@@ -358,7 +364,7 @@ td > .btn-group > .adv-btn-info {
     font-size: 1.3rem;
     font-weight: normal;
     cursor: pointer; }
-    .adv-checkbox label::before {
+    .checkbox label::before {
       content: "";
       display: inline-block;
       position: absolute;
@@ -372,15 +378,15 @@ td > .btn-group > .adv-btn-info {
 /*-------------------------------------*/
 /*------------- ALERT BOX -------------*/
 /*-------------------------------------*/
-.adv-alert {
+.alert {
   border-radius: 0; }
 
-.adv-alert-success {
+.alert-success {
   color: #2ECC71;
   background-color: #DEF7E9;
   border-color: #2ECC71; }
 
-.adv-alert-danger {
+.alert-danger {
   color: #D92F35;
   background-color: #F9DFE0;
   border-color: #D92F35; }

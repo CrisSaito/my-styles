@@ -24,10 +24,12 @@ p {
 /*-------------------------------------*/
 /*-------- BORDER-RADIUS RESET --------*/
 /*-------------------------------------*/
-.adv-panel-default,
+.nav-tabs>li>a,
+.panel-default,
 input.adv-form-control,
-.adv-btn-sm,
-.adv-navbar-inverse {
+.btn,
+.form-control,
+.navbar-inverse {
 	border-radius: 0;
 	box-shadow: none;
 }
@@ -36,7 +38,7 @@ input.adv-form-control,
 /*-------------------------------------*/
 /*--------------- IMAGES --------------*/
 /*-------------------------------------*/
-.adv-img-thumbnail {
+.img-thumbnail {
 	background-color: $white;
 }
 
@@ -44,7 +46,7 @@ input.adv-form-control,
 /*-------------------------------------*/
 /*------------ NAVBAR STYLE -----------*/
 /*-------------------------------------*/
-.adv-navbar-inverse {
+.navbar-inverse {
 	background-color: $black;
 }
 
@@ -55,7 +57,7 @@ input.adv-form-control,
 .form-group {
 	position: relative;
 }
-.adv-nav>li {
+.nav>li {
 	display: inline-block;
 
 	&>a {
@@ -69,7 +71,7 @@ input.adv-form-control,
 		}
 	}
 }
-.adv-nav-tabs {
+.nav-tabs {
 	border-bottom: 2px solid $adv-blue;
 
 	& > li {
@@ -95,12 +97,15 @@ input.adv-form-control,
 /*-------------------------------------*/
 /*-------------- PANELS ---------------*/
 /*-------------------------------------*/
-.adv-panel-default,
-.adv-panel-heading {
+.panel-default {
+	border-width: 0 0 1px 0;
+}
+.panel-default>.panel-heading {
 	border-bottom-color: $gray-1;
+	background-color: #FFF;
 }
 
-.adv-panel-default {
+.panel-default {
 	box-shadow: none;
 }
 
@@ -108,7 +113,7 @@ input.adv-form-control,
 /*-------------------------------------*/
 /*--------------- TABLES --------------*/
 /*-------------------------------------*/
-.adv-table-wrap {
+.table-wrap {
 	overflow: auto;
 }
 
@@ -117,7 +122,7 @@ input.adv-form-control,
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
 // FORM VALIDATIONS
-.adv-error-text {
+.error-text {
 	color: $adv-red;
 }
 input.adv-form-control {
@@ -129,7 +134,7 @@ input.adv-form-control {
 	}
 }
 
-.has-error .adv-form-control {
+.has-error .form-control {
 	border-color: $adv-red;
 }
 
@@ -137,8 +142,9 @@ input.adv-form-control {
 /*-------------------------------------*/
 /*-------------- BUTTONS --------------*/
 /*-------------------------------------*/
-.adv-btn {
+.btn {
 	display: inline-block;
+	min-width: 100px;
 	padding: 0.6rem 1.2rem;
 	margin-bottom: 0;
 	font-weight: 400;
@@ -172,22 +178,22 @@ input.adv-form-control {
 			@include transition(all 0.2s);
 		}
 	}
-	.adv-btn-default {
+	.btn-default {
 		@include btn-colors($adv-gray);
 	}
-	.adv-btn-primary {
+	.btn-primary {
 		@include btn-colors($adv-blue);
 	}
-	.adv-btn-success {
+	.btn-success {
 		@include btn-colors($adv-green);
 	}
-	.adv-btn-danger {
+	.btn-danger {
 		@include btn-colors($adv-red);
 	}
-	.adv-btn-warning {
+	.btn-warning {
 		@include btn-colors($adv-orange);
 	}
-	.adv-btn-info {
+	.btn-info {
 		@include btn-colors($adv-blue75);
 	}
 
@@ -204,39 +210,39 @@ input.adv-form-control {
 			@include transition(all 0.2s);
 		}
 	}
-	.adv-btn-default-invert {
+	.btn-default-invert {
 		@include btn-colors-invert($adv-gray);
 	}
-	.adv-btn-primary-invert {
+	.btn-primary-invert {
 		@include btn-colors-invert($adv-blue);
 	}
-	.adv-btn-success-invert {
+	.btn-success-invert {
 		@include btn-colors-invert($adv-green);
 	}
-	.adv-btn-danger-invert {
+	.btn-danger-invert {
 		@include btn-colors-invert($adv-red);
 	}
-	.adv-btn-warning-invert {
+	.btn-warning-invert {
 		@include btn-colors-invert($adv-orange);
 	}
-	.adv-btn-info-invert {
+	.btn-info-invert {
 		@include btn-colors-invert($adv-blue75);
 	}
 
 // DROPDOWN BUTTON
-.adv-btn-info.adv-btn-sm.dropdown-toggle:last-child {
+.btn-info.adv-btn-sm.dropdown-toggle:last-child {
 	border-left-color: $adv-blue;
 }
-.adv-btn-sm {
+.btn-sm {
 	border-width: 2px;
 }
 
 // SPLIT BUTTON DROPDOWN (ALTERNATIVE)
-td>.btn-group>.adv-btn-info {
+td>.btn-group>.btn-info {
 	position: relative;
 
-	.adv-caret {
-		margin-left: 2.1rem;
+	.caret {
+		margin-left: 2.6rem;
 		&::before {
 			content: "";
 			position: absolute;
@@ -244,14 +250,14 @@ td>.btn-group>.adv-btn-info {
 			border-left: 1px solid;
 			border-left-color: $adv-blue30;
 			top: 0;
-			right: 2.8rem;
+			right: 3.4rem;
 			@include transition(border-left-color);
 		}
 	}
 
 	&:hover,
 	&:focus {
-		.adv-caret::before {
+		.caret::before {
 			border-left-color: $adv-blue75;
 			@include transition(border-left-color);
 		}
@@ -263,7 +269,7 @@ td>.btn-group>.adv-btn-info {
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
 // PANEL-HEADING
-.adv-panel-heading p {
+.panel-heading p {
 	display: inline-block;
 	color: $adv-blue;
 	margin-right: 1rem;
@@ -306,10 +312,10 @@ td>.btn-group>.adv-btn-info {
 	}
 }
 
-.adv-radio {
+.radio {
 	@include radio-checkbox(radio, "\25CF", 50%);
 }
-.adv-checkbox {
+.checkbox {
 	@include radio-checkbox(checkbox, "\2714", 0);
 }
 
@@ -317,7 +323,7 @@ td>.btn-group>.adv-btn-info {
 /*-------------------------------------*/
 /*------------- ALERT BOX -------------*/
 /*-------------------------------------*/
-.adv-alert {
+.alert {
 	border-radius: 0;
 }
 
@@ -326,10 +332,10 @@ td>.btn-group>.adv-btn-info {
   background-color: $color2;
   border-color: $color1;
 }
-.adv-alert-success {
+.alert-success {
 	@include adv-alert-box($adv-green, $adv-green15);
 }
-.adv-alert-danger {
+.alert-danger {
 	@include adv-alert-box($adv-red, $adv-red15);
 }
 

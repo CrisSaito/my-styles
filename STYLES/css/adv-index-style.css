@@ -11,17 +11,17 @@
 /*-------------------------------------*/
 /*-------------- HEADER ---------------*/
 /*-------------------------------------*/
-.adv-header-left {
+.header-left {
   float: left; }
-  .adv-header-left .adv-day-time {
+  .header-left .adv-day-time {
     color: #FFF; }
 
-.adv-header-right {
+.header-right {
   float: right; }
-  .adv-header-right .adv-img-thumbnail {
+  .header-right .img-thumbnail {
     height: 4rem;
     width: 4rem; }
-    .adv-header-right .adv-img-thumbnail span {
+    .header-right .img-thumbnail span {
       display: inline-block;
       height: 100%;
       width: 100%;
