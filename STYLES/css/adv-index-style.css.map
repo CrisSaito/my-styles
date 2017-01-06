@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA;;;kCAGkC;AAKlC,yCAAyC;AACzC,yCAAyC;AACzC,yCAAyC;AA4CzC,yCAAyC;AACzC,yCAAyC;AACzC,yCAAyC;ACrDzC,yCAAyC;AACzC,yCAAyC;AACzC,yCAAyC;AACzC,YAAa;EACZ,KAAK,EAAE,IAAI;EAEX,0BAAc;IACb,KAAK,EDCC,IAAI;;ACEZ,aAAc;EACb,KAAK,EAAE,KAAK;EAEZ,4BAAe;IACd,MAAM,EAAE,IAAI;IACZ,KAAK,EAAE,IAAI;IAEX,iCAAK;MACJ,OAAO,EAAE,YAAY;MACrB,MAAM,EAAE,IAAI;MACZ,KAAK,EAAE,IAAI;MACX,eAAe,EAAE,OAAO",
-"sources": ["../scss/adv-variables-mixins.scss","../scss/adv-index-style.scss"],
-"names": [],
-"file": "adv-index-style.css"
-}

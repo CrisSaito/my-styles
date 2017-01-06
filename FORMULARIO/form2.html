@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)file:///C:/Users/Cris%20Saito/AppData/Roaming/Skype/My%20Skype%20Received%20Files/form2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../STYLES/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../STYLES/adv-css/adv-bootstrap.css">
+		<link rel="stylesheet" href="../STYLES/adv-css/adv-ftp-form.css">
+	</head>
+
+	<body>
+		<header>
+			
+		</header>
+
+		<!-- INSERIR CONTEÚDO AQUI -->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12  col-md-12">				
+					
+					<div ng-hide="enableForm" ng-include="&#39;/adviseu-b2b.app/app/views/flow/flow-list.html&#39;" class="ng-scope">
+						<form class="ng-pristine ng-valid ng-scope">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<a href="file:///C:/Users/Cris%20Saito/AppData/Roaming/Skype/My%20Skype%20Received%20Files/flow" ng-click="new()" class="btn btn-info">Novo fluxo</a>
+								</span>
+								<input ng-model="filterFlow" ng-model-options="{debounce:500}" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Filtrar">
+							</div>	        
+						</form>
+				
+						<table class="table table-hover ng-scope">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Flow Type</th>
+									<th>Task Type</th>
+									<th>Published</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<!-- ngRepeat: flow in listFlows | filter: filterFlow | orderBy:'id' -->
+							<tbody ng-repeat="flow in listFlows | filter: filterFlow | orderBy:&#39;id&#39; " class="ng-scope">
+								<tr>
+									<td class="ng-binding">2</td>
+									<td class="ng-binding">teste</td>
+									<td class="ng-binding">teste</td>
+									<td class="ng-binding">AdviseU API Services</td>
+									<td class="ng-binding">TRANSFORMATION</td>
+									<td>
+										<span ng-show="flow.published" class=""><i class="glyphicon glyphicon-ok-circle text-success"></i></span>
+										<span ng-show="!flow.published" class="ng-hide"><i class="glyphicon glyphicon-ban-circle text-danger"></i></span>						
+									</td>
+									<td nowrap="">
+										<button type="button" class="btn btn-default btn-xs" ng-click="edit(flow)">
+											<span class="glyphicon glyphicon-pencil"></span>Edit
+										</button> 
+										<button type="button" class="btn btn-danger btn-xs" ng-click="confirmExclusion(flow)">
+											<span class="glyphicon glyphicon-remove"></span>Remove
+										</button>
+										
+									</td>
+								</tr>
+							</tbody><!-- end ngRepeat: flow in listFlows | filter: filterFlow | orderBy:'id' -->
+						</table>		
+					</div>	
+
+
+
+
+
+
+					<div class="panel panel-default">
+					   <div class="panel-body">
+						  <div active="activeJustified" justified="true" type="pills" class="ng-isolate-scope">
+							 <ul class="nav nav-pills nav-justified" ng-class="{&#39;nav-stacked&#39;: vertical, &#39;nav-justified&#39;: justified}" ng-transclude="">
+								<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope" index="0" style="">
+								   <a href="file:///C:/Users/Cris%20Saito/AppData/Roaming/Skype/My%20Skype%20Received%20Files/form2.html" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude="">
+									  <uib-tab-heading classes="btn-default" class="ng-scope"> <span class="glyphicon glyphicon-import"></span> Entrypoint </uib-tab-heading>
+								   </a>
+								</li>
+								<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope active" index="1" style="">
+								   <a href="file:///C:/Users/Cris%20Saito/AppData/Roaming/Skype/My%20Skype%20Received%20Files/form2.html" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude="">
+									  <uib-tab-heading class="ng-scope"> <span class="glyphicon glyphicon-cog"></span> Activities </uib-tab-heading>
+								   </a>
+								</li>
+								<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope" index="2" style="">
+								   <a href="file:///C:/Users/Cris%20Saito/AppData/Roaming/Skype/My%20Skype%20Received%20Files/form2.html" ng-click="select($event)" class="nav-link ng-binding" uib-tab-heading-transclude="">
+									  <uib-tab-heading class="ng-scope"> <span class="glyphicon glyphicon-exclamation-sign"></span> Alerts </uib-tab-heading>
+								   </a>
+								</li>
+							 </ul>
+							 <div class="tab-content">
+								<!-- ngRepeat: tab in tabset.tabs -->
+								<div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+								   <!-- ngInclude: '/adviseu-b2b.app/app/views/flow/flow-form-entrypoint.html' -->
+								   <div ng-include="&#39;/adviseu-b2b.app/app/views/flow/flow-form-entrypoint.html&#39;" class="ng-scope">
+									  <div ng-controller="EntrypointController" class="ng-scope">
+										 <br>
+										 <h4>
+											Entrypoint Source <small> Create your entrypoint source
+											</small>
+										 </h4>
+										 <br> <br>
+										 <!-- ngIf: false -->
+										 <div class="form-group " ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.entrypointTypeList.$touched) 
+											&amp;&amp; flowForm.entrypointTypeList.$invalid }">
+											<label for="entrypointTypeList">Select the entrypoint
+											type *</label> 
+											<select name="entrypointTypeList" ng-model="flowEntry.entryPointType" ng-options="type as labelFlowEntryType(type)  for type in listEntrypointTypes" class="form-control ng-pristine ng-untouched ng-not-empty ng-valid ng-valid-required" required="" style="">
+											   <option value="" class="" selected="selected">Select the type</option>
+											   <option label="AdviseU Smart FTP" value="string:ADV_SMART_FTP">AdviseU
+												  Smart FTP
+											   </option>
+											   <option label="AdviseU API Services" value="string:ADV_API_SERVICES" selected="selected">AdviseU
+												  API Services
+											   </option>
+											</select>
+											<!-- ngIf: (flowForm.$submitted || flowForm.entrypointName.$touched) -->
+										 </div>
+										 <!-- ngIf: flowEntry.entryPointType=='ADV_SMART_FTP' -->
+										 <!-- ngIf: flowEntry.entryPointType=='ADV_API_SERVICES' -->
+										 <div ng-if="flowEntry.entryPointType==&#39;ADV_API_SERVICES&#39;" class="form-group ng-scope" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.path.$touched) &amp;&amp; flowForm.path.$invalid }">
+											<label for="path">URL Pattern</label>
+											<div class="input-group">
+											   <span class="input-group-btn"> <span class="btn btn-default" ng-disabled="true" disabled="disabled">/context/</span>
+											   </span> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required ng-valid-maxlength" name="path" placeholder="Define the URL pattern" required="" ng-model="flowEntry.path" value="teste" ng-disabled="readOnly" ng-maxlength="250">
+											</div>
+											<!-- ngIf: (flowForm.$submitted || flowForm.path.$touched) -->
+											<br> <label for="verb">Verb</label> <br> <label class="radio-inline"> <input type="radio" name="verb" id="verbGET" value="GET" ng-model="flowEntry.verb" required="" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+											GET
+											</label> <label class="radio-inline"> <input type="radio" name="verb" id="verbPOST" value="POST" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+											POST
+											</label> <label class="radio-inline"> <input type="radio" name="verb" id="verbPUT" value="PUT" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+											PUT
+											</label> <input type="radio" name="verb" id="verbDELETE" value="DELETE" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+											DELETE
+											<!-- ngIf: (flowForm.$submitted || flowForm.verb.$touched) -->
+										 </div>
+										 <!-- end ngIf: flowEntry.entryPointType=='ADV_API_SERVICES' -->
+									  </div>
+								   </div>
+								</div>
+								<!-- end ngRepeat: tab in tabset.tabs -->
+								<div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+								   <!-- ngInclude: '/adviseu-b2b.app/app/views/flow/flow-form-activity.html' -->
+								   <div ng-include="&#39;/adviseu-b2b.app/app/views/flow/flow-form-activity.html&#39;" class="ng-scope">
+									  <div class="ng-scope">
+										 <br>
+										 <h4>
+											Activities <small> Select activities to execute on flow
+											</small>
+										 </h4>
+										 <br> <br>
+										 <!-- ngRepeat: task in flow.tasks -->
+										 <div class="form-group ng-scope" data-ng-repeat="task in flow.tasks">
+											<table class="table" width="100%">
+											   <thead>
+												  <tr>
+													 <th>Activity</th>
+													 <th ng-show="uploader.queue.length == 0 &amp;&amp; (task.name == null || task.name.length == 0)" class="ng-hide">File Upload</th>
+													 <th>File Name</th>
+													 <th ng-show="uploader.isHTML5 &amp;&amp; uploader.queue.length &gt; 0 " class="ng-hide">Size</th>
+													 <th ng-show="(uploader.queue.length &gt; 0 || task.name.length &gt; 0)" class=""></th>
+												  </tr>
+											   </thead>
+											   <tbody>
+												  <tr>
+													 <td>
+														<select name="taskTypeList" ng-model="task.flowTaskType" ng-disabled="true" ng-options="taskType for taskType in taskTypeList track by taskType" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" disabled="disabled">
+														   <option label="TRANSFORMATION" value="TRANSFORMATION" selected="selected">TRANSFORMATION</option>
+														</select>
+													 </td>
+													 <td ng-show="uploader.queue.length == 0 &amp;&amp; (task.name == null || task.name.length == 0)" class="ng-hide">
+													 		<label class="adv-choose-file" for="fileUpload">Choose file</label>
+													 		<input type="file" nv-file-select="" uploader="uploader" ng-blur="setTaskName(this)" options="{ url: &#39;/adviseu-b2b.app/fileupload/&#39; }" name="fileUpload" id="fileUpload">
+													 		<span class="adv-choosed-file-name" id="file-name" readonly></span>
+													 </td>
+													 <td>
+														<div class="form-group" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.taskName.$touched) &amp;&amp; flowForm.taskName.$invalid }">
+														   <input type="text" name="taskName" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" required="" ng-model="flow.tasks[0].name" value="http.ktr">
+														   <!-- ngIf: (flowForm.$submitted || flowForm.taskName.$touched) -->
+														</div>
+													 </td>
+													 <td ng-show="uploader.isHTML5 &amp;&amp; uploader.queue.length &gt; 0 " nowrap="" class="ng-binding ng-hide">MB</td>
+													 <td nowrap="" ng-show="(uploader.queue.length &gt; 0 || task.name.length &gt; 0)" class="">
+														<button type="button" class="btn btn-danger btn-xs" ng-click="removeFile(task)">
+														<span class="glyphicon glyphicon-trash"></span> Remove
+														</button>
+													 </td>
+												  </tr>
+											   </tbody>
+											</table>
+											<!--  <a class="form-control btn btn-primary" ng-click="addNewTask()">Add new task</a> -->
+										 </div>
+										 <!-- end ngRepeat: task in flow.tasks -->
+									  </div>
+								   </div>
+								</div>
+								<!-- end ngRepeat: tab in tabset.tabs -->
+								<div class="tab-pane ng-scope active" ng-repeat="tab in tabset.tabs" ng-class="{active: tabset.active === tab.index}" uib-tab-content-transclude="tab" style="">
+								   <!-- ngInclude: '/adviseu-b2b.app/app/views/flow/flow-form-alerts.html' -->
+								   <div ng-include="&#39;/adviseu-b2b.app/app/views/flow/flow-form-alerts.html&#39;" class="ng-scope">
+									  <div class="ng-scope">
+										 <br>
+										 <h4>
+											Alerts <small> Define alerts to send on flow </small>
+										 </h4>
+										 <br> <br>
+										 <div class="form-group" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.alertType1.$touched) 
+											&amp;&amp; flowForm.alertType1.$invalid }">
+											<label for="alertType1">Alerta Tipo 1</label> <input class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" name="alertType1" placeholder="Set the messsage" size="150" ng-model="alertList[0]" value="" ng-disabled="readOnly" ng-maxlength="30">
+											<!-- ngIf: (flowForm.$submitted || flowForm.alertType1.$touched) -->
+										 </div>
+										 <div class="form-group" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.alertType2.$touched) 
+											&amp;&amp; flowForm.alertType2.$invalid }">
+											<label for="alertType2">Alerta Tipo 2</label> <input class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" name="alertType2" placeholder="Set the messsage" size="150" ng-model="alertList[1]" value="" ng-disabled="readOnly" ng-maxlength="30">
+											<!-- ngIf: (flowForm.$submitted || flowForm.alertType2.$touched) -->
+										 </div>
+										 <div class="form-group" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.alertType3.$touched) 
+											&amp;&amp; flowForm.alertType3.$invalid }">
+											<label for="alertType3">Alerta Tipo 3</label> <input class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" name="alertType3" placeholder="Set the messsage" size="150" ng-model="alertList[2]" value="" ng-disabled="readOnly" ng-maxlength="30">
+											<!-- ngIf: (flowForm.$submitted || flowForm.alertType3.$touched) -->
+										 </div>
+									  </div>
+								   </div>
+								</div>
+								<!-- end ngRepeat: tab in tabset.tabs -->
+							 </div>
+						  </div>
+					   </div>
+					</div>
+
+
+
+
+
+
+
+
+
+					
+				</div>
+			</div>
+		</div>
+		
+		<script src="../STYLES/adv-js/adv-js.js"></script>
+	
+</body></html>
