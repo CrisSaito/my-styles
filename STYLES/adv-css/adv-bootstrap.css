@@ -62,38 +62,47 @@ select.form-control,
   display: inline-block;
   width: auto; }
 
-.nav > li > a {
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s; }
-  .nav > li > a:focus, .nav > li > a:hover {
-    border-color: transparent;
-    box-shadow: inset 0 0 0 2px #C3E1F4;
-    color: #3498DB;
-    background-color: transparent;
+.nav {
+  border-bottom: 1px solid #3498DB; }
+  .nav > li > a {
+    margin: 0;
+    border: 0;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
-.nav > li.active > a:hover, .nav > li.active > a:focus {
-  box-shadow: none; }
-
-.nav-tabs {
-  border-bottom: 2px solid #3498DB; }
-  .nav-tabs > li {
-    max-width: 50%;
-    vertical-align: bottom;
-    white-space: nowrap; }
-    .nav-tabs > li a {
-      overflow: hidden;
-      text-overflow: ellipsis; }
-  .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    .nav > li > a:focus, .nav > li > a:hover {
+      border-color: transparent;
+      box-shadow: inset 0 -4px 0 0 #3498DB;
+      color: #3498DB;
+      background-color: transparent;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s; }
+  .nav > li.active > a {
     color: #FFF;
     background-color: #3498DB; }
+    .nav > li.active > a:hover, .nav > li.active > a:focus {
+      box-shadow: none;
+      color: #FFF;
+      background-color: #3498DB; }
+
+.nav-tabs > li {
+  max-width: 50%;
+  vertical-align: bottom;
+  white-space: nowrap; }
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li > a, .nav-tabs > li > a:hover {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0; }
 
 /*-------------------------------------*/
 /*-------------- PANELS ---------------*/
 /*-------------------------------------*/
 .panel-default {
+  margin: 1rem 0 3rem;
   border-width: 0 0 1px 0; }
 
+@media (min-width: 750px) {
+  .panel-default {
+    margin: 3rem 0; } }
 .panel-default > .panel-heading {
   border-bottom-color: #CCC;
   background-color: #FFF;
@@ -102,9 +111,32 @@ select.form-control,
 .panel-default {
   box-shadow: none; }
 
+.tab-content {
+  padding: 0 2rem; }
+
+.tab-pane:not(:last-child) {
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed #B7B7B7; }
+
+.tab-pane {
+  margin-bottom: 3.5rem; }
+  .tab-pane h4 {
+    margin: 2rem 0 2.5rem;
+    font-weight: 600; }
+    .tab-pane h4 + .form-group > table {
+      margin-top: 0; }
+
 /*-------------------------------------*/
 /*-------------- BUTTONS --------------*/
 /*-------------------------------------*/
+.btn {
+  margin-right: 1rem; }
+  .btn .glyphicon {
+    padding-right: 0.8rem; }
+
+@media (min-width: 750px) {
+  .btn {
+    min-width: 8rem; } }
 .btn {
   display: inline-block;
   min-width: 100px;
@@ -271,6 +303,34 @@ select.form-control,
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
 
+.btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus {
+  border-color: #B7B7B7;
+  background-color: #B7B7B7;
+  color: #FFF; }
+
+.btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus,
+.btn-info[disabled],
+.btn-info[disabled]:hover,
+.btn-info[disabled]:focus {
+  border-color: #97CAED;
+  background-color: #97CAED;
+  color: #FFF; }
+
+.btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus {
+  border-color: #96E5B8;
+  background-color: #96E5B8;
+  color: #FFF; }
+
+.btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus {
+  border-color: #EC979B;
+  background-color: #EC979B;
+  color: #FFF; }
+
+.btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus {
+  border-color: #F9FF8F;
+  background-color: #F9FF8F;
+  color: #FFF; }
+
 .btn-info.btn-sm.dropdown-toggle:last-child {
   border-left-color: #3498DB; }
 
@@ -297,7 +357,7 @@ td > .btn-group > .btn-info {
     transition: border-left-color; }
 
 /*-------------------------------------*/
-/*----------- TEXT COLORS -------------*/
+/*---------------- TEXT ---------------*/
 /*-------------------------------------*/
 .text-primary,
 .text-info {
@@ -310,9 +370,22 @@ td > .btn-group > .btn-info {
 .text-danger {
   color: #B5272C; }
 
+.error-text {
+  position: absolute;
+  font-size: 1.3rem; }
+
+h1 > small, h2 > small, h3 > small, h4 > small, h5 > small, h6 > small {
+  color: #2C81BA; }
+
+label {
+  font-weight: 600; }
+
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
+.form-horizontal .form-group {
+  margin-bottom: 3rem; }
+
 .error-text {
   color: #D92F35; }
 
@@ -361,17 +434,22 @@ input[type="file"] {
   margin-right: 1rem;
   font-size: 1.8rem; }
 
-.radio {
-  padding-left: 0; }
-  .radio input[type="radio"] {
+.radio,
+.radio-inline + .radio-inline {
+  padding-left: 0;
+  margin: 0; }
+  .radio input[type="radio"],
+  .radio-inline + .radio-inline input[type="radio"] {
     display: none; }
-    .radio input[type="radio"]:checked + label::before {
+    .radio input[type="radio"]:checked + label::before,
+    .radio-inline + .radio-inline input[type="radio"]:checked + label::before {
       content: "●";
-      font-size: 2rem;
-      line-height: 1.1rem;
+      font-size: 2.4rem;
+      line-height: 1rem;
       text-align: center;
-      color: #67B2E4; }
-  .radio label {
+      color: #3498DB; }
+  .radio label,
+  .radio-inline + .radio-inline label {
     display: inline-block;
     position: relative;
     padding-left: 2rem;
@@ -379,28 +457,34 @@ input[type="file"] {
     font-size: 1.3rem;
     font-weight: normal;
     cursor: pointer; }
-    .radio label::before {
+    .radio label::before,
+    .radio-inline + .radio-inline label::before {
       content: "";
       display: inline-block;
       position: absolute;
       left: 0;
-      bottom: 1px;
+      bottom: 3px;
       height: 1.6rem;
       width: 1.6rem;
       border: 1px solid #B7B7B7;
       border-radius: 50%; }
 
-.checkbox {
-  padding-left: 0; }
-  .checkbox input[type="checkbox"] {
+.checkbox,
+.checkbox-inline + .checkbox-inline {
+  padding-left: 0;
+  margin: 0; }
+  .checkbox input[type="checkbox"],
+  .checkbox-inline + .checkbox-inline input[type="checkbox"] {
     display: none; }
-    .checkbox input[type="checkbox"]:checked + label::before {
+    .checkbox input[type="checkbox"]:checked + label::before,
+    .checkbox-inline + .checkbox-inline input[type="checkbox"]:checked + label::before {
       content: "✔";
-      font-size: 2rem;
-      line-height: 1.1rem;
+      font-size: 2.4rem;
+      line-height: 1rem;
       text-align: center;
-      color: #67B2E4; }
-  .checkbox label {
+      color: #3498DB; }
+  .checkbox label,
+  .checkbox-inline + .checkbox-inline label {
     display: inline-block;
     position: relative;
     padding-left: 2rem;
@@ -408,12 +492,13 @@ input[type="file"] {
     font-size: 1.3rem;
     font-weight: normal;
     cursor: pointer; }
-    .checkbox label::before {
+    .checkbox label::before,
+    .checkbox-inline + .checkbox-inline label::before {
       content: "";
       display: inline-block;
       position: absolute;
       left: 0;
-      bottom: 1px;
+      bottom: 3px;
       height: 1.6rem;
       width: 1.6rem;
       border: 1px solid #B7B7B7;
@@ -499,5 +584,35 @@ table {
   src: url("../font/OpenSans-Semibold.eot?#iefix") format("embedded-opentype"), url("../font/OpenSans-Semibold.woff") format("woff"), url("../font/OpenSans-Semibold.ttf") format("truetype"), url("../font/OpenSans-Semibold.svg#OpenSans-Semibold") format("svg");
   font-weight: 600;
   font-style: normal; }
+/*-------------------------------------*/
+/*---------- SMART FTP FORM -----------*/
+/*-------------------------------------*/
+/*--- TABS STYLE ---*/
+/* ---------------- */
+.adv-logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%; }
+  .adv-logo img {
+    height: 100%;
+    padding: 0.5rem 1rem 0.5rem 0; }
+
+/*--- FORMS ---*/
+/* ----------- */
+[name="userForm"] .form-group:last-child {
+  margin-bottom: 0; }
+
+/*--- NEW FTP USER ---*/
+/* ------------------ */
+.adv-btn-new-action {
+  padding: 1.3rem 2rem; }
+
+@media (min-width: 750) {
+  #new-user-form form > .form-group {
+    display: flex;
+    align-items: center; }
+    #new-user-form form > .form-group label {
+      padding-top: 0; } }
 
 /*# sourceMappingURL=adv-bootstrap.css.map */

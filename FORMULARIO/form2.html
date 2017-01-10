@@ -6,7 +6,6 @@
 		<title></title>
 		<link rel="stylesheet" href="../STYLES/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../STYLES/adv-css/adv-bootstrap.css">
-		<link rel="stylesheet" href="../STYLES/adv-css/adv-ftp-form.css">
 	</head>
 
 	<body>
@@ -75,7 +74,7 @@
 
 
 					<div class="panel panel-default">
-					   <div class="panel-body">
+					   <!-- <div class="panel-body"> -->
 						  <div active="activeJustified" justified="true" type="pills" class="ng-isolate-scope">
 							 <ul class="nav nav-pills nav-justified" ng-class="{&#39;nav-stacked&#39;: vertical, &#39;nav-justified&#39;: justified}" ng-transclude="">
 								<li ng-class="[{active: active, disabled: disabled}, classes]" class="uib-tab nav-item ng-scope ng-isolate-scope" index="0" style="">
@@ -100,12 +99,12 @@
 								   <!-- ngInclude: '/adviseu-b2b.app/app/views/flow/flow-form-entrypoint.html' -->
 								   <div ng-include="&#39;/adviseu-b2b.app/app/views/flow/flow-form-entrypoint.html&#39;" class="ng-scope">
 									  <div ng-controller="EntrypointController" class="ng-scope">
-										 <br>
+										 <!-- <br> -->
 										 <h4>
 											Entrypoint Source <small> Create your entrypoint source
 											</small>
 										 </h4>
-										 <br> <br>
+										 <!-- <br> <br> -->
 										 <!-- ngIf: false -->
 										 <div class="form-group " ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.entrypointTypeList.$touched) 
 											&amp;&amp; flowForm.entrypointTypeList.$invalid }">
@@ -131,18 +130,41 @@
 											   </span> <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required ng-valid-maxlength" name="path" placeholder="Define the URL pattern" required="" ng-model="flowEntry.path" value="teste" ng-disabled="readOnly" ng-maxlength="250">
 											</div>
 											<!-- ngIf: (flowForm.$submitted || flowForm.path.$touched) -->
-											<br> <label for="verb">Verb</label> <br> <label class="radio-inline"> <input type="radio" name="verb" id="verbGET" value="GET" ng-model="flowEntry.verb" required="" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
-											GET
-											</label> <label class="radio-inline"> <input type="radio" name="verb" id="verbPOST" value="POST" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
-											POST
-											</label> <label class="radio-inline"> <input type="radio" name="verb" id="verbPUT" value="PUT" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
-											PUT
-											</label> <input type="radio" name="verb" id="verbDELETE" value="DELETE" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
-											DELETE
+											<!-- <br> -->
+										 	<!-- end ngIf: flowEntry.entryPointType=='ADV_API_SERVICES' -->
+									  	</div>
 											<!-- ngIf: (flowForm.$submitted || flowForm.verb.$touched) -->
+											<div class="form-group">
+												<label for="verb">Verb</label>
+												<!-- <br> -->
+												<!-- <label class="radio-inline"> <input type="radio" name="verb" id="verbGET" value="GET" ng-model="flowEntry.verb" required="" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+												GET
+												</label> <label class="radio-inline"> <input type="radio" name="verb" id="verbPOST" value="POST" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+												POST
+												</label> <label class="radio-inline"> <input type="radio" name="verb" id="verbPUT" value="PUT" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+												PUT
+												</label> <input type="radio" name="verb" id="verbDELETE" value="DELETE" ng-model="flowEntry.verb" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+												DELETE -->
+												<div class="">
+						  						<div class="radio-inline radio">
+						  							<input id="radio1" type="radio" name="access" checked="checked">
+						  							<label for="radio1">GET</label>
+					  							</div>
+					  							<div class="radio-inline radio">
+						  							<input id="radio2" type="radio" name="access" checked="checked">
+						  							<label for="radio2">POST</label>
+					  							</div>
+					  							<div class="radio-inline radio">
+						  							<input id="radio3" type="radio" name="access" checked="checked">
+						  							<label for="radio3">PUT</label>
+					  							</div>
+					  							<div class="radio-inline radio">
+						  							<input id="radio4" type="radio" name="access" checked="checked">
+						  							<label for="radio4">DELETE</label>
+					  							</div>
+												</div>
+											</div>
 										 </div>
-										 <!-- end ngIf: flowEntry.entryPointType=='ADV_API_SERVICES' -->
-									  </div>
 								   </div>
 								</div>
 								<!-- end ngRepeat: tab in tabset.tabs -->
@@ -150,12 +172,12 @@
 								   <!-- ngInclude: '/adviseu-b2b.app/app/views/flow/flow-form-activity.html' -->
 								   <div ng-include="&#39;/adviseu-b2b.app/app/views/flow/flow-form-activity.html&#39;" class="ng-scope">
 									  <div class="ng-scope">
-										 <br>
+										 <!-- <br> -->
 										 <h4>
 											Activities <small> Select activities to execute on flow
 											</small>
 										 </h4>
-										 <br> <br>
+										 <!-- <br> <br> -->
 										 <!-- ngRepeat: task in flow.tasks -->
 										 <div class="form-group table-responsive ng-scope" data-ng-repeat="task in flow.tasks">
 											<table class="table" width="100%">
@@ -206,11 +228,11 @@
 								   <!-- ngInclude: '/adviseu-b2b.app/app/views/flow/flow-form-alerts.html' -->
 								   <div ng-include="&#39;/adviseu-b2b.app/app/views/flow/flow-form-alerts.html&#39;" class="ng-scope">
 									  <div class="ng-scope">
-										 <br>
+										 <!-- <br> -->
 										 <h4>
 											Alerts <small> Define alerts to send on flow </small>
 										 </h4>
-										 <br> <br>
+										 <!-- <br> <br> -->
 										 <div class="form-group" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.alertType1.$touched) 
 											&amp;&amp; flowForm.alertType1.$invalid }">
 											<label for="alertType1">Alerta Tipo 1</label> <input class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" name="alertType1" placeholder="Set the messsage" size="150" ng-model="alertList[0]" value="" ng-disabled="readOnly" ng-maxlength="30">
@@ -232,7 +254,7 @@
 								<!-- end ngRepeat: tab in tabset.tabs -->
 							 </div>
 						  </div>
-					   </div>
+					   <!-- </div> -->
 					</div>
 
 

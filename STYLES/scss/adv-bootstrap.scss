@@ -64,45 +64,49 @@ select.form-control,
 	display: inline-block;
 	width: auto;
 }
-.nav>li {
-	&>a {
-		@include transition(all 0.2s);
+.nav {
+	border-bottom: 1px solid $adv-blue;
 
-		&:focus,
-		&:hover {
-			border-color: transparent;
-			box-shadow: inset 0 0 0 2px $adv-blue30;
-			color: $adv-blue;
-			background-color: transparent;
+	&>li {
+		&>a {
+			margin: 0;
+			border: 0;
 			@include transition(all 0.2s);
+
+			&:focus,
+			&:hover {
+				border-color: transparent;
+				box-shadow: inset 0 -4px 0 0 $adv-blue;
+				color: $adv-blue;
+				background-color: transparent;
+				@include transition(all 0.2s);
+			}
 		}
-	}
-	&.active>a {
-		&:hover,
-		&:focus {
-			box-shadow: none;
+		&.active>a {
+			color: $white;
+			background-color: $adv-blue;
+			&:hover,
+			&:focus {
+				box-shadow: none;
+				color: $white;
+				background-color: $adv-blue;
+			}
 		}
 	}
 }
 .nav-tabs {
-	border-bottom: 2px solid $adv-blue;
-
 	& > li {
 		max-width: 50%;
 		vertical-align: bottom;
 		white-space: nowrap;
 
-		a {
+		&.active>a,
+		&.active>a:hover,
+		&>a,
+		&>a:hover {
 			overflow: hidden;
 			text-overflow: ellipsis;
-		}
-	}
-	&>li.active {
-		&>a,
-		&>a:focus,
-		&>a:hover {
-			color: $white;
-			background-color: $adv-blue;
+			border: 0;
 		}
 	}
 }
@@ -112,8 +116,14 @@ select.form-control,
 /*-------------- PANELS ---------------*/
 /*-------------------------------------*/
 .panel-default {
+	margin: 1rem 0 3rem;
 	border-width: 0 0 1px 0;
 }
+	@media (min-width: 750px) {
+		.panel-default {
+			margin: 3rem 0;
+		}
+	}
 .panel-default>.panel-heading {
 	border-bottom-color: $gray-1;
 	background-color: #FFF;
@@ -124,10 +134,43 @@ select.form-control,
 	box-shadow: none;
 }
 
+.tab-content {
+	padding: 0 2rem;
+}
+.tab-pane:not(:last-child) {
+	padding-bottom: 2rem;
+	border-bottom: 1px dashed $adv-gray45;
+}
+.tab-pane {
+	margin-bottom: 3.5rem;
+
+	h4 {
+		margin: 2rem 0 2.5rem;
+		font-weight: 600;
+
+		& + .form-group > table {
+			margin-top: 0;
+		}
+	}
+}
+
 
 /*-------------------------------------*/
 /*-------------- BUTTONS --------------*/
 /*-------------------------------------*/
+.btn {
+	margin-right: 1rem;
+
+	.glyphicon {
+		padding-right: 0.8rem; 
+	}
+}
+	@media (min-width: 750px) {
+		.btn {
+			min-width: 8rem;
+		}
+	}
+
 .btn {
 	display: inline-block;
 	min-width: 100px;
@@ -213,6 +256,54 @@ select.form-control,
 		@include btn-colors-invert($adv-blue75);
 	}
 
+// DISABLED BUTTON 
+.btn-default[disabled] {
+	&,
+	&:hover,
+	&:focus {
+		border-color: $adv-gray45;
+		background-color: $adv-gray45;
+		color: $white;
+	}
+}
+.btn-primary[disabled],
+.btn-info[disabled] {
+	&,
+	&:hover,
+	&:focus {
+		border-color: $adv-blue50;
+		background-color: $adv-blue50;
+		color: $white;
+	}
+}
+.btn-success[disabled] {
+	&,
+	&:hover,
+	&:focus {
+		border-color: $adv-green50;
+		background-color: $adv-green50;
+		color: $white;
+	}
+}
+.btn-danger[disabled] {
+	&,
+	&:hover,
+	&:focus {
+		border-color: $adv-red50;
+		background-color: $adv-red50;
+		color: $white;
+	}
+}
+.btn-warning[disabled] {
+	&,
+	&:hover,
+	&:focus {
+		border-color: $adv-orange50;
+		background-color: $adv-orange50;
+		color: $white;
+	}
+}
+
 // DROPDOWN BUTTON
 .btn-info.btn-sm.dropdown-toggle:last-child {
 	border-left-color: $adv-blue;
@@ -250,7 +341,7 @@ td>.btn-group>.btn-info {
 
 
 /*-------------------------------------*/
-/*----------- TEXT COLORS -------------*/
+/*---------------- TEXT ---------------*/
 /*-------------------------------------*/
 .text-primary,
 .text-info {
@@ -263,11 +354,26 @@ td>.btn-group>.btn-info {
 .text-danger {
 	color: $adv-red-dark;
 }
+.error-text {
+	position: absolute;
+	font-size: 1.3rem;
+}
+h1, h2, h3, h4, h5, h6 {
+	&>small {
+		color: $adv-blue-dark;
+	}
+}
+label {
+	font-weight: 600;
+}
 
 
 /*-------------------------------------*/
 /*--------------- FORMS ---------------*/
 /*-------------------------------------*/
+.form-horizontal .form-group {
+	margin-bottom: 3rem;
+}
 // FORM VALIDATIONS
 .error-text {
 	color: $adv-red;
@@ -323,15 +429,16 @@ input[type="file"] {
 
 // RADIOS & CHECHBOXES
 @mixin radio-checkbox($type, $unicode, $border-radius) {
-	padding-left: 0; 
+	padding-left: 0;
+	margin: 0;
 	input[type="#{$type}"] {
 		display: none;
 		&:checked + label::before {
 	    content: $unicode;
-	    font-size: 2rem;
-	    line-height: 1.1rem;
+	    font-size: 2.4rem;
+	    line-height: 1rem;
 	    text-align: center;
-	    color: $adv-blue75;
+	    color: $adv-blue;
 		}
 	}
 	label {
@@ -348,7 +455,7 @@ input[type="file"] {
 		  display: inline-block;
 		  position: absolute;
 		  left: 0;
-		  bottom: 1px;
+		  bottom: 3px;
 		  height: 1.6rem;
 		  width: 1.6rem;
 		  border: 1px solid $adv-gray45;
@@ -357,10 +464,12 @@ input[type="file"] {
 	}
 }
 
-.radio {
+.radio,
+.radio-inline+.radio-inline {
 	@include radio-checkbox(radio, "\25CF", 50%);
 }
-.checkbox {
+.checkbox,
+.checkbox-inline+.checkbox-inline {
 	@include radio-checkbox(checkbox, "\2714", 0);
 }
 
@@ -481,4 +590,51 @@ table {
 		url('../font/OpenSans-Semibold.svg#OpenSans-Semibold') format('svg');
 	font-weight: 600;
 	font-style: normal;
+}
+
+
+
+
+
+/*-------------------------------------*/
+/*---------- SMART FTP FORM -----------*/
+/*-------------------------------------*/
+/*--- TABS STYLE ---*/
+/* ---------------- */
+.adv-logo {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+
+	img {
+		height: 100%;
+		padding: 0.5rem 1rem 0.5rem 0;
+	}
+}
+
+
+/*--- FORMS ---*/
+/* ----------- */
+[name="userForm"] .form-group:last-child {
+	margin-bottom: 0;
+}
+
+
+/*--- NEW FTP USER ---*/
+/* ------------------ */
+// BUTTON
+.adv-btn-new-action {
+	padding: 1.3rem 2rem;
+}
+
+@media (min-width: 750) {
+	#new-user-form form>.form-group {
+		display: flex;
+		align-items: center;
+
+		label {
+			padding-top: 0;
+		}
+	}
 }
