@@ -541,9 +541,15 @@ select.form-control::before {
 .table-wrap {
   overflow: auto; }
 
-table {
+form + .table-responsive {
   margin-top: 2rem; }
 
+.table-responsive .table {
+  min-width: 930px; }
+
+@media (max-width: 767px) {
+  .table-responsive .table {
+    min-width: 830px; } }
 .table > tbody > tr > td,
 .table > tbody > tr > th,
 .table > tfoot > tr > td,
@@ -614,5 +620,7 @@ table {
     align-items: center; }
     #new-user-form form > .form-group label {
       padding-top: 0; } }
+/*------ TABLES ------*/
+/* ------------------ */
 
 /*# sourceMappingURL=adv-bootstrap.css.map */

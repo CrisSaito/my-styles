@@ -179,44 +179,46 @@
 										 </h4>
 										 <!-- <br> <br> -->
 										 <!-- ngRepeat: task in flow.tasks -->
-										 <div class="form-group table-responsive ng-scope" data-ng-repeat="task in flow.tasks">
-											<table class="table" width="100%">
-											   <thead>
-												  <tr>
-													 <th>Activity</th>
-													 <th ng-show="uploader.queue.length == 0 &amp;&amp; (task.name == null || task.name.length == 0)" class="ng-hide">File Upload</th>
-													 <th>File Name</th>
-													 <th ng-show="uploader.isHTML5 &amp;&amp; uploader.queue.length &gt; 0 " class="ng-hide">Size</th>
-													 <th ng-show="(uploader.queue.length &gt; 0 || task.name.length &gt; 0)" class=""></th>
-												  </tr>
-											   </thead>
-											   <tbody>
-												  <tr>
-													 <td>
-														<select name="taskTypeList" ng-model="task.flowTaskType" ng-disabled="true" ng-options="taskType for taskType in taskTypeList track by taskType" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" disabled="disabled">
-														   <option label="TRANSFORMATION" value="TRANSFORMATION" selected="selected">TRANSFORMATION</option>
-														</select>
-													 </td>
-													 <td ng-show="uploader.queue.length == 0 &amp;&amp; (task.name == null || task.name.length == 0)" class="ng-hide">
-													 		<label class="adv-choose-file" for="fileUpload">Choose file</label>
-													 		<input type="file" nv-file-select="" uploader="uploader" ng-blur="setTaskName(this)" options="{ url: &#39;/adviseu-b2b.app/fileupload/&#39; }" name="fileUpload" id="fileUpload">
-													 		<span class="adv-choosed-file-name" id="file-name" readonly></span>
-													 </td>
-													 <td>
-														<div class="form-group" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.taskName.$touched) &amp;&amp; flowForm.taskName.$invalid }">
-														   <input type="text" name="taskName" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" required="" ng-model="flow.tasks[0].name" value="http.ktr">
-														   <!-- ngIf: (flowForm.$submitted || flowForm.taskName.$touched) -->
-														</div>
-													 </td>
-													 <td ng-show="uploader.isHTML5 &amp;&amp; uploader.queue.length &gt; 0 " nowrap="" class="ng-binding ng-hide">MB</td>
-													 <td nowrap="" ng-show="(uploader.queue.length &gt; 0 || task.name.length &gt; 0)" class="">
-														<button type="button" class="btn btn-danger btn-xs" ng-click="removeFile(task)">
-														<span class="glyphicon glyphicon-trash"></span> Remove
-														</button>
-													 </td>
-												  </tr>
-											   </tbody>
-											</table>
+										 <div class="form-group ng-scope" data-ng-repeat="task in flow.tasks">
+										 	<div class="table-responsive">
+												<table class="table" width="100%">
+												   <thead>
+													  <tr>
+														 <th>Activity</th>
+														 <th ng-show="uploader.queue.length == 0 &amp;&amp; (task.name == null || task.name.length == 0)" class="ng-hide">File Upload</th>
+														 <th>File Name</th>
+														 <th ng-show="uploader.isHTML5 &amp;&amp; uploader.queue.length &gt; 0 " class="ng-hide">Size</th>
+														 <th ng-show="(uploader.queue.length &gt; 0 || task.name.length &gt; 0)" class=""></th>
+													  </tr>
+												   </thead>
+												   <tbody>
+													  <tr>
+														 <td>
+															<select name="taskTypeList" ng-model="task.flowTaskType" ng-disabled="true" ng-options="taskType for taskType in taskTypeList track by taskType" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" disabled="disabled">
+															   <option label="TRANSFORMATION" value="TRANSFORMATION" selected="selected">TRANSFORMATION</option>
+															</select>
+														 </td>
+														 <td ng-show="uploader.queue.length == 0 &amp;&amp; (task.name == null || task.name.length == 0)" class="ng-hide">
+														 		<label class="adv-choose-file" for="fileUpload">Choose file</label>
+														 		<input type="file" nv-file-select="" uploader="uploader" ng-blur="setTaskName(this)" options="{ url: &#39;/adviseu-b2b.app/fileupload/&#39; }" name="fileUpload" id="fileUpload">
+														 		<span class="adv-choosed-file-name" id="file-name" readonly></span>
+														 </td>
+														 <td>
+															<div class="" ng-class="{ &#39;has-error&#39;: (flowForm.$submitted || flowForm.taskName.$touched) &amp;&amp; flowForm.taskName.$invalid }">
+															   <input type="text" name="taskName" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" required="" ng-model="flow.tasks[0].name" value="http.ktr">
+															   <!-- ngIf: (flowForm.$submitted || flowForm.taskName.$touched) -->
+															</div>
+														 </td>
+														 <td ng-show="uploader.isHTML5 &amp;&amp; uploader.queue.length &gt; 0 " nowrap="" class="ng-binding ng-hide">MB</td>
+														 <td nowrap="" ng-show="(uploader.queue.length &gt; 0 || task.name.length &gt; 0)" class="">
+															<button type="button" class="btn btn-danger btn-xs" ng-click="removeFile(task)">
+															<span class="glyphicon glyphicon-trash"></span> Remove
+															</button>
+														 </td>
+													  </tr>
+												   </tbody>
+												</table>
+										 	</div>
 											<!--  <a class="form-control btn btn-primary" ng-click="addNewTask()">Add new task</a> -->
 										 </div>
 										 <!-- end ngRepeat: task in flow.tasks -->
